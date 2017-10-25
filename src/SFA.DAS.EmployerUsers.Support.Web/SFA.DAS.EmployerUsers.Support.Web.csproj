@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sfa.Das.Console.Web</RootNamespace>
-    <AssemblyName>Sfa.Das.Console.Web</AssemblyName>
+    <RootNamespace>SFA.DAS.EmployerUsers.Support.Web</RootNamespace>
+    <AssemblyName>SFA.DAS.EmployerUsers.Support.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort>44347</IISExpressSSLPort>
@@ -314,17 +314,17 @@
       <Project>{E4B62128-974D-4787-8FE6-7A249E2D25A9}</Project>
       <Name>ESFA.DAS.Support.Shared</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Sfa.Das.Console.ApplicationServices\Sfa.Das.Console.ApplicationServices.csproj">
+    <ProjectReference Include="..\SFA.DAS.EmployerUsers.Support.Application\SFA.DAS.EmployerUsers.Support.Application.csproj">
       <Project>{CE85AAE2-BD07-45F0-A642-4FA376ED9BF1}</Project>
-      <Name>Sfa.Das.Console.ApplicationServices</Name>
+      <Name>SFA.DAS.EmployerUsers.Support.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Sfa.Das.Console.Core\Sfa.Das.Console.Core.csproj">
+    <ProjectReference Include="..\SFA.DAS.EmployerUsers.Support.Core\SFA.DAS.EmployerUsers.Support.Core.csproj">
       <Project>{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}</Project>
-      <Name>Sfa.Das.Console.Core</Name>
+      <Name>SFA.DAS.EmployerUsers.Support.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Sfa.Das.Console.Infrastructure\Sfa.Das.Console.Infrastructure.csproj">
+    <ProjectReference Include="..\SFA.DAS.EmployerUsers.Support.Infrastructure\SFA.DAS.EmployerUsers.Support.Infrastructure.csproj">
       <Project>{4cc506ae-f6bc-46b2-910a-d6bf29da8d90}</Project>
-      <Name>Sfa.Das.Console.Infrastructure</Name>
+      <Name>SFA.DAS.EmployerUsers.Support.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -26,6 +26,7 @@
       <Setting name="LoggingRedisConnectionString" />
       <Setting name="EnvironmentName"/>
       <Setting name="ConfigurationStorageConnectionString" />
+      <Setting name="EmpUserConnectionString"/>
     </ConfigurationSettings>
     <Endpoints>
       <InputEndpoint name="Endpoint1" protocol="https" port="443" certificate="WebSslCert"/>

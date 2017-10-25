@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}</ProjectGuid>
+    <ProjectGuid>{CE85AAE2-BD07-45F0-A642-4FA376ED9BF1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sfa.Das.Console.Core</RootNamespace>
-    <AssemblyName>Sfa.Das.Console.Core</AssemblyName>
+    <RootNamespace>SFA.DAS.EmployerUsers.Support.Application</RootNamespace>
+    <AssemblyName>SFA.DAS.EmployerUsers.Support.Application</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,8 +32,24 @@
     <CodeAnalysisRuleSet>..\SharedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MediatR, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MediatR.3.0.1\lib\net45\MediatR.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.3.7\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="SFA.DAS.EAS.Account.Api.Types, Version=1.0.0.36226, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SFA.DAS.Account.Api.Types.1.0.0.36226\lib\net45\SFA.DAS.EAS.Account.Api.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SFA.DAS.NLog.Logger, Version=1.0.0.26805, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SFA.DAS.NLog.Logger.1.0.0.26805\lib\net45\SFA.DAS.NLog.Logger.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -46,18 +62,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\IConfigurationSettings.cs" />
-    <Compile Include="Configuration\IEmployerUserDatabaseSettings.cs" />
-    <Compile Include="Domain\Model\EmployerUser.cs" />
-    <Compile Include="Domain\Model\IUser.cs" />
-    <Compile Include="Domain\Model\User.cs" />
-    <Compile Include="Domain\Model\UserStatus.cs" />
+    <Compile Include="IEmployerUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IProvideSettings.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ESFA.DAS.Support.Shared\ESFA.DAS.Support.Shared.csproj">
+      <Project>{E4B62128-974D-4787-8FE6-7A249E2D25A9}</Project>
+      <Name>ESFA.DAS.Support.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SFA.DAS.EmployerUsers.Support.Core\SFA.DAS.EmployerUsers.Support.Core.csproj">
+      <Project>{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}</Project>
+      <Name>SFA.DAS.EmployerUsers.Support.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

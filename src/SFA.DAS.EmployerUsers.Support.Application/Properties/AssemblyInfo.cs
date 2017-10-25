@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Sfa.Das.Console.ApplicationServices")]
+[assembly: AssemblyTitle("SFA.DAS.EmployerUsers.Support.Application")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Sfa.Das.Console.ApplicationServices")]
+[assembly: AssemblyProduct("SFA.DAS.EmployerUsers.Support.Application")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

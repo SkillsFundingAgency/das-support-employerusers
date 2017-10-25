@@ -30,9 +30,6 @@ namespace Sfa.Das.Console.Infrastructure
             _settings = settings;
         }
 
-        public string ConnectionStringName => Environment.GetEnvironmentVariable("EmployerUserConnectionString", EnvironmentVariableTarget.User);
-
-
         public IEnumerable<SearchItem> FindAll()
         {
             return GetUsers(Int32.MaxValue, 0).Select(_mapper.Map);

@@ -11,7 +11,7 @@
     <RootNamespace>Sfa.Das.Console.Web.CloudService</RootNamespace>
     <AssemblyName>Sfa.Das.Console.Web.CloudService</AssemblyName>
     <StartDevelopmentStorage>True</StartDevelopmentStorage>
-    <Name>Sfa.Das.Console.Web.CloudService</Name>
+    <Name>SFA.DAS.EmployerUsers.Support.CloudService</Name>
     <PackageEnableRemoteDebugger>False</PackageEnableRemoteDebugger>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -37,26 +37,25 @@
     <None Include="Configuration\ServiceDefinition.Release.csdef" />
     <None Include="Configuration\ServiceDefinition.Cloud.csdef" />
     <ServiceConfiguration Include="ServiceConfiguration.Release.cscfg" />
-    <ServiceConfiguration Include="ServiceConfiguration.PreProd.cscfg" />                          
+    <ServiceConfiguration Include="ServiceConfiguration.PreProd.cscfg" />
     <ServiceConfiguration Include="ServiceConfiguration.Local.cscfg" />
     <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sfa.Das.Console.Web\Sfa.Das.Console.Web.csproj">
-      <Name>Sfa.Das.Console.Web</Name>
-      <Project>{5b06a69d-8660-4d15-b6b1-6a7ddbaa5ce5}</Project>
-      <Private>True</Private>
-      <RoleType>Web</RoleType>
-      <RoleName>Sfa.Das.Console.Web</RoleName>
-      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Sfa.Das.Console.WebContent\" />
+    <Folder Include="SFA.DAS.EmployerUsers.Support.WebContent" />
     <Folder Include="Configuration\" />
   </ItemGroup>
   <ItemGroup>
-    <DiagnosticsConfiguration Include="Sfa.Das.Console.WebContent\diagnostics.wadcfgx" />
+    <DiagnosticsConfiguration Include="SFA.DAS.EmployerUsers.Support.WebContent\diagnostics.wadcfgx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SFA.DAS.EmployerUsers.Support.Web\SFA.DAS.EmployerUsers.Support.Web.csproj">
+      <Name>SFA.DAS.EmployerUsers.Support.Web</Name>
+      <Project>{5b06a69d-8660-4d15-b6b1-6a7ddbaa5ce5}</Project>
+      <Private>True</Private>
+      <RoleType>Web</RoleType>
+      <RoleName>SFA.DAS.EmployerUsers.Support.Web</RoleName>
+    </ProjectReference>
   </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>

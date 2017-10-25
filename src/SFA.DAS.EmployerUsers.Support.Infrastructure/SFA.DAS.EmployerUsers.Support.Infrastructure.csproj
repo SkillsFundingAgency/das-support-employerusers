@@ -7,8 +7,8 @@
     <ProjectGuid>{4CC506AE-F6BC-46B2-910A-D6BF29DA8D90}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sfa.Das.Console.Infrastructure</RootNamespace>
-    <AssemblyName>Sfa.Das.Console.Infrastructure</AssemblyName>
+    <RootNamespace>SFA.DAS.EmployerUsers.Support.Infrastructure</RootNamespace>
+    <AssemblyName>SFA.DAS.EmployerUsers.Support.Infrastructure</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -145,13 +145,13 @@
       <Project>{E4B62128-974D-4787-8FE6-7A249E2D25A9}</Project>
       <Name>ESFA.DAS.Support.Shared</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Sfa.Das.Console.ApplicationServices\Sfa.Das.Console.ApplicationServices.csproj">
+    <ProjectReference Include="..\SFA.DAS.EmployerUsers.Support.Application\SFA.DAS.EmployerUsers.Support.Application.csproj">
       <Project>{CE85AAE2-BD07-45F0-A642-4FA376ED9BF1}</Project>
-      <Name>Sfa.Das.Console.ApplicationServices</Name>
+      <Name>SFA.DAS.EmployerUsers.Support.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Sfa.Das.Console.Core\Sfa.Das.Console.Core.csproj">
+    <ProjectReference Include="..\SFA.DAS.EmployerUsers.Support.Core\SFA.DAS.EmployerUsers.Support.Core.csproj">
       <Project>{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}</Project>
-      <Name>Sfa.Das.Console.Core</Name>
+      <Name>SFA.DAS.EmployerUsers.Support.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

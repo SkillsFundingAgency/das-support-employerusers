@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "Sfa.Das.Console.Web.CloudService", "Sfa.Das.Console.Web.CloudService\Sfa.Das.Console.Web.CloudService.ccproj", "{114C3D2F-1E05-45ED-ACF6-161F534475C6}"
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "SFA.DAS.EmployerUsers.Support.CloudService", "SFA.DAS.EmployerUsers.Support.CloudService\SFA.DAS.EmployerUsers.Support.CloudService.ccproj", "{114C3D2F-1E05-45ED-ACF6-161F534475C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sfa.Das.Console.Web", "Sfa.Das.Console.Web\Sfa.Das.Console.Web.csproj", "{5B06A69D-8660-4D15-B6B1-6A7DDBAA5CE5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.EmployerUsers.Support.Web", "SFA.DAS.EmployerUsers.Support.Web\SFA.DAS.EmployerUsers.Support.Web.csproj", "{5B06A69D-8660-4D15-B6B1-6A7DDBAA5CE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sfa.Das.Console.Infrastructure", "Sfa.Das.Console.Infrastructure\Sfa.Das.Console.Infrastructure.csproj", "{4CC506AE-F6BC-46B2-910A-D6BF29DA8D90}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.EmployerUsers.Support.Infrastructure", "SFA.DAS.EmployerUsers.Support.Infrastructure\SFA.DAS.EmployerUsers.Support.Infrastructure.csproj", "{4CC506AE-F6BC-46B2-910A-D6BF29DA8D90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sfa.Das.Console.ApplicationServices", "Sfa.Das.Console.ApplicationServices\Sfa.Das.Console.ApplicationServices.csproj", "{CE85AAE2-BD07-45F0-A642-4FA376ED9BF1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.EmployerUsers.Support.Application", "SFA.DAS.EmployerUsers.Support.Application\SFA.DAS.EmployerUsers.Support.Application.csproj", "{CE85AAE2-BD07-45F0-A642-4FA376ED9BF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sfa.Das.Console.Core", "Sfa.Das.Console.Core\Sfa.Das.Console.Core.csproj", "{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.EmployerUsers.Support.Core", "SFA.DAS.EmployerUsers.Support.Core\SFA.DAS.EmployerUsers.Support.Core.csproj", "{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DAS.Support.Shared", "ESFA.DAS.Support.Shared\ESFA.DAS.Support.Shared.csproj", "{E4B62128-974D-4787-8FE6-7A249E2D25A9}"
 EndProject

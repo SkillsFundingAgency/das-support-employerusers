@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceConfiguration serviceName="Sfa.Das.Console.Web.CloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
-  <Role name="Sfa.Das.Console.Web">
+  <Role name="SFA.DAS.EmployerUsers.Support.Web">
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
@@ -13,6 +13,7 @@
       <Setting name="LoggingRedisConnectionString" value="" />
       <Setting name="EnvironmentName" value="local" />
       <Setting name="ConfigurationStorageConnectionString" value="" />
+      <Setting name="EmpUserConnectionString" value=""/>
     </ConfigurationSettings>
     <Certificates>
       <Certificate name="WebSslCert" thumbprint="87A28DF77BBA73983918DF4288A132588AE820F4" thumbprintAlgorithm="sha1" />
