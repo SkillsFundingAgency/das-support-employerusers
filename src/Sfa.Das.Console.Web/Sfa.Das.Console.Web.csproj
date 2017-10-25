@@ -307,6 +307,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ManifestController.cs" />
+    <Compile Include="DependencyResolution\ApplicationServicesRegistry.cs" />
+    <Compile Include="DependencyResolution\InfrastructureRegistry.cs" />
     <Compile Include="DependencyResolution\WebRegistry.cs" />
     <Compile Include="Logging\RequestContext.cs" />
     <Compile Include="Startup.cs" />
