@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "Sfa.Das.Console.Web.CloudService", "Sfa.Das.Console.Web.CloudService\Sfa.Das.Console.Web.CloudService.ccproj", "{114C3D2F-1E05-45ED-ACF6-161F534475C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sfa.Das.Console.Web", "Sfa.Das.Console.Web\Sfa.Das.Console.Web.csproj", "{5B06A69D-8660-4D15-B6B1-6A7DDBAA5CE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sfa.Das.Console.Infrastructure", "Sfa.Das.Console.Infrastructure\Sfa.Das.Console.Infrastructure.csproj", "{4CC506AE-F6BC-46B2-910A-D6BF29DA8D90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sfa.Das.Console.ApplicationServices", "Sfa.Das.Console.ApplicationServices\Sfa.Das.Console.ApplicationServices.csproj", "{CE85AAE2-BD07-45F0-A642-4FA376ED9BF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sfa.Das.Console.Core", "Sfa.Das.Console.Core\Sfa.Das.Console.Core.csproj", "{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DAS.Support.Shared", "ESFA.DAS.Support.Shared\ESFA.DAS.Support.Shared.csproj", "{E4B62128-974D-4787-8FE6-7A249E2D25A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{114C3D2F-1E05-45ED-ACF6-161F534475C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{114C3D2F-1E05-45ED-ACF6-161F534475C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{114C3D2F-1E05-45ED-ACF6-161F534475C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{114C3D2F-1E05-45ED-ACF6-161F534475C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B06A69D-8660-4D15-B6B1-6A7DDBAA5CE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B06A69D-8660-4D15-B6B1-6A7DDBAA5CE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B06A69D-8660-4D15-B6B1-6A7DDBAA5CE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B06A69D-8660-4D15-B6B1-6A7DDBAA5CE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CC506AE-F6BC-46B2-910A-D6BF29DA8D90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CC506AE-F6BC-46B2-910A-D6BF29DA8D90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CC506AE-F6BC-46B2-910A-D6BF29DA8D90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CC506AE-F6BC-46B2-910A-D6BF29DA8D90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE85AAE2-BD07-45F0-A642-4FA376ED9BF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE85AAE2-BD07-45F0-A642-4FA376ED9BF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE85AAE2-BD07-45F0-A642-4FA376ED9BF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE85AAE2-BD07-45F0-A642-4FA376ED9BF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4B62128-974D-4787-8FE6-7A249E2D25A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4B62128-974D-4787-8FE6-7A249E2D25A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4B62128-974D-4787-8FE6-7A249E2D25A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4B62128-974D-4787-8FE6-7A249E2D25A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
