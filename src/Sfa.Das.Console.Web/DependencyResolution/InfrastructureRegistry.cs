@@ -4,6 +4,7 @@ using Sfa.Das.Console.Core.Services;
 using Sfa.Das.Console.Infrastructure.Settings;
 using SFA.DAS.EmployerUsers.Api.Client;
 using SFA.DAS.NLog.Logger;
+using StructureMap;
 using StructureMap.Configuration.DSL;
 
 namespace Sfa.Das.Console.Infrastructure.DependencyResolution
@@ -30,6 +31,8 @@ namespace Sfa.Das.Console.Infrastructure.DependencyResolution
             For<IEmployerUsersApiConfiguration>().Use<Settings.EmployerUsersApiConfiguration>();
 
             For<IEmployerUserRepository>().Use<EmployerUserRepository>();
+
+            For<IEmployerUserDatabaseSettings>().Use<EmployerUserDatabaseSettings>();
         }
     }
 }

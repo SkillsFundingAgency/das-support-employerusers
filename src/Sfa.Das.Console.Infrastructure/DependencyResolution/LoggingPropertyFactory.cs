@@ -1,11 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Reflection;
-using System.Security.Claims;
-using Sfa.Das.Console.ApplicationServices.Services;
-using Sfa.Das.Console.Core.Services;
 
 namespace Sfa.Das.Console.Infrastructure.DependencyResolution
 {

@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="DefaultRegistry.cs" company="Web Advanced">
+// <copyright file="StructuremapWebApi.cs" company="Web Advanced">
 // Copyright 2012 Web Advanced (www.webadvanced.com)
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,23 +15,16 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Sfa.Das.Console.Web.DependencyResolution {
-    using StructureMap.Configuration.DSL;
-    using StructureMap.Graph;
-    using StructureMap;
-	
-    public class DefaultRegistry : Registry {
-        #region Constructors and Destructors
+using System.Web.Http;
+using Sfa.Das.Console.Web.DependencyResolution;
 
-        public DefaultRegistry() {
-            Scan(
-                scan => {
-                    scan.TheCallingAssembly();
-                    scan.WithDefaultConventions();
-                });
-            //For<IExample>().Use<Example>();
+[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(Sfa.Das.Console.Web.App_Start.StructuremapWebApi), "Start")]
+
+namespace Sfa.Das.Console.Web.App_Start {
+    public static class StructuremapWebApi {
+        public static void Start() {
+			var container = StructuremapMvc.StructureMapDependencyScope.Container;
+            GlobalConfiguration.Configuration.DependencyResolver = new StructureMapWebApiDependencyResolver(container);
         }
-
-        #endregion
     }
 }

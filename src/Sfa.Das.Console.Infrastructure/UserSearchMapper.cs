@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using ESFA.DAS.Support.Shared;
+using Sfa.Das.Console.Infrastructure;
 using SFA.DAS.EmployerUsers.Api.Types;
 
 namespace SFA.DAS.EmployerUsers.Support.Web.Services
 {
     public class UserSearchMapper : IMapUserSearchItems
     {
-        public SearchItem Map(UserSummaryViewModel arg)
+        public SearchItem Map(User arg)
         {
             var keywords = new List<string>
             {

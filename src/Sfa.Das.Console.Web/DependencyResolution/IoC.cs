@@ -16,7 +16,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 
-using Sfa.Das.Console.ApplicationServices.DependencyResolution;
 using Sfa.Das.Console.Infrastructure.DependencyResolution;
 
 namespace Sfa.Das.Console.Web.DependencyResolution {
@@ -29,7 +28,6 @@ namespace Sfa.Das.Console.Web.DependencyResolution {
                 c.AddRegistry<DefaultRegistry>();
                 c.AddRegistry<InfrastructureRegistry>();
                 c.AddRegistry<ApplicationServicesRegistry>();
-                c.AddRegistry<MediatrRegistry>();
                 c.AddRegistry<WebRegistry>();
             });
         }

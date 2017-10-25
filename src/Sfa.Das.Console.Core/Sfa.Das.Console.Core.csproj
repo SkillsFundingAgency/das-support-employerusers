@@ -36,14 +36,6 @@
       <HintPath>..\packages\SFA.DAS.Account.Api.Types.1.0.0.36226\lib\net45\SFA.DAS.EAS.Account.Api.Types.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="StructureMap, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\structuremap.3.1.1.134\lib\net40\StructureMap.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="StructureMap.Net4, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\structuremap.3.1.1.134\lib\net40\StructureMap.Net4.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,12 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\IConfigurationSettings.cs" />
-    <Compile Include="Domain\Exceptions\EntityNotFoundException.cs" />
+    <Compile Include="Configuration\IEmployerUserDatabaseSettings.cs" />
     <Compile Include="Domain\Model\EmployerUser.cs" />
-    <Compile Include="Domain\Model\EmployerUserSummary.cs" />
     <Compile Include="Domain\Model\IUser.cs" />
+    <Compile Include="Domain\Model\User.cs" />
     <Compile Include="Domain\Model\UserStatus.cs" />
-    <Compile Include="Domain\Model\UserSummary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IProvideSettings.cs" />
   </ItemGroup>

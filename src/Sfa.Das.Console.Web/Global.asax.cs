@@ -3,7 +3,6 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Sfa.Das.Console.Web.App_Start;
 using SFA.DAS.NLog.Logger;
 
 namespace Sfa.Das.Console.Web

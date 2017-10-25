@@ -5,8 +5,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Web.Http;
 using ESFA.DAS.Support.Shared;
-using MediatR;
-using Sfa.Das.Console.ApplicationServices.Models.Requests;
+using Sfa.Das.Console.ApplicationServices;
 using Sfa.Das.Console.Infrastructure;
 using SFA.DAS.EmployerUsers.Support.Web.Services;
 
@@ -15,11 +14,11 @@ namespace Sfa.Das.Console.Web.Controllers
     [System.Web.Http.RoutePrefix("api/manifest")]
     public class ManifestController : ApiController
     {
-        private readonly IMediator _mediator;
+        private readonly IEmployerUserRepository _repository;
 
-        public ManifestController(IMediator mediator)
+        public ManifestController(IEmployerUserRepository repository)
         {
-            _mediator = mediator;
+            _repository = repository;
         }
 
         [System.Web.Http.Route("")]
@@ -34,23 +33,10 @@ namespace Sfa.Das.Console.Web.Controllers
         }
 
         [HttpGet]
-        public ResultPage<SearchItem> User(int limit = 10, int start = 1)
+        public IEnumerable<SearchItem> User()
         {
-            if (start <= 0)
-            {
-                start = 1;
-            }
-
-            if (limit <= 0)
-            {
-                limit = 10;
-            }
-
-            var task = _mediator.SendAsync<EmployerUserPageResponse>(new EmployerUserPageRequest {Limit = limit, Start = start});
-            Task.WaitAll(task);
-
-            return task.Result.Page;
-        }
+            return _repository.FindAll();
+        } 
 
         private IEnumerable<SiteResource> GetResources()
         {
