@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using ESFA.DAS.Support.Shared;
 using Sfa.Das.Console.Core.Domain.Model;
+using SFA.DAS.EmployerUsers.Support.Core.Domain.Model;
 
 namespace Sfa.Das.Console.ApplicationServices
 {

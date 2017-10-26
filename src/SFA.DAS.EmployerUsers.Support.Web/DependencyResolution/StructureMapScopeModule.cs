@@ -1,7 +1,7 @@
-namespace Sfa.Das.Console.Web.DependencyResolution {
+namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution {
     using System.Web;
 
-    using Sfa.Das.Console.Web.App_Start;
+    using SFA.DAS.EmployerUsers.Support.Web.App_Start;
 
     using StructureMap.Web.Pipeline;
 

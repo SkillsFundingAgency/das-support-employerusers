@@ -1,13 +1,15 @@
 ﻿using Sfa.Das.Console.ApplicationServices;
 using Sfa.Das.Console.Core.Configuration;
 using Sfa.Das.Console.Core.Services;
+using Sfa.Das.Console.Infrastructure;
+using Sfa.Das.Console.Infrastructure.DependencyResolution;
 using Sfa.Das.Console.Infrastructure.Settings;
 using SFA.DAS.EmployerUsers.Api.Client;
+using SFA.DAS.EmployerUsers.Support.Infrastructure;
 using SFA.DAS.NLog.Logger;
-using StructureMap;
 using StructureMap.Configuration.DSL;
 
-namespace Sfa.Das.Console.Infrastructure.DependencyResolution
+namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
 {
     public class InfrastructureRegistry : Registry
     {
@@ -28,7 +30,7 @@ namespace Sfa.Das.Console.Infrastructure.DependencyResolution
                 var empUserApiSettings = ctx.GetInstance<IEmployerUsersApiConfiguration>();
                 return new EmployerUsersApiClient(empUserApiSettings);
             });
-            For<IEmployerUsersApiConfiguration>().Use<Settings.EmployerUsersApiConfiguration>();
+            For<IEmployerUsersApiConfiguration>().Use<EmployerUsersApiConfiguration>();
 
             For<IEmployerUserRepository>().Use<EmployerUserRepository>();
 

@@ -1,8 +1,8 @@
 ﻿using Sfa.Das.Console.Infrastructure;
 using SFA.DAS.EmployerUsers.Support.Web.Services;
-using StructureMap;
+using StructureMap.Configuration.DSL;
 
-namespace Sfa.Das.Console.Web.DependencyResolution
+namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
 {
     public sealed class ApplicationServicesRegistry : Registry
     {

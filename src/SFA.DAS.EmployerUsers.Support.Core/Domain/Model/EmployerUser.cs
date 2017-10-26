@@ -1,4 +1,6 @@
-﻿namespace Sfa.Das.Console.Core.Domain.Model
+﻿using Sfa.Das.Console.Core.Domain.Model;
+
+namespace SFA.DAS.EmployerUsers.Support.Core.Domain.Model
 {
     public class EmployerUser : IUser
     {

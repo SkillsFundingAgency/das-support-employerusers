@@ -22,7 +22,7 @@ using System.Web.Http.Dependencies;
 using Microsoft.Practices.ServiceLocation;
 using StructureMap;
 
-namespace Sfa.Das.Console.Web.DependencyResolution
+namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
 {
     /// <summary>
     /// The structure map web api dependency scope.

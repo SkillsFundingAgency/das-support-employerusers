@@ -1,13 +1,13 @@
 ﻿using Sfa.Das.Console.Core.Services;
 using SFA.DAS.EmployerUsers.Api.Client;
 
-namespace Sfa.Das.Console.Infrastructure.Settings
+namespace SFA.DAS.EmployerUsers.Support.Infrastructure.Settings
 {
-    public class EmployerUsersApiConfiguration : IEmployerUsersApiConfiguration
+    public class EmployerUsersApiSettings : IEmployerUsersApiConfiguration
     {
         private readonly IProvideSettings _settings;
 
-        public EmployerUsersApiConfiguration(IProvideSettings settings)
+        public EmployerUsersApiSettings(IProvideSettings settings)
         {
             _settings = settings;
         }

@@ -131,13 +131,12 @@
     <Compile Include="Settings\AppConfigSettingsProvider.cs" />
     <Compile Include="Settings\ApplicationSettings.cs" />
     <Compile Include="Settings\EmployerUserDatabaseSettings.cs" />
-    <Compile Include="Settings\EmployerUsersApiConfiguration.cs" />
+    <Compile Include="Settings\EmployerUsersApiSettings.cs" />
     <Compile Include="Settings\MachineSettings.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserSearchMapper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -15,7 +15,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Sfa.Das.Console.Web.DependencyResolution {
+namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution {
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -82,16 +82,14 @@ namespace Sfa.Das.Console.Web.DependencyResolution {
         }
 
         public void Dispose() {
-            if (CurrentNestedContainer != null) {
-                CurrentNestedContainer.Dispose();
-            }
-
+            DisposeNestedContainer();
             Container.Dispose();
         }
 
         public void DisposeNestedContainer() {
             if (CurrentNestedContainer != null) {
                 CurrentNestedContainer.Dispose();
+				CurrentNestedContainer = null;
             }
         }
 

@@ -1,17 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 using System.Web.Http;
 using ESFA.DAS.Support.Shared;
 using Sfa.Das.Console.ApplicationServices;
-using Sfa.Das.Console.Infrastructure;
-using SFA.DAS.EmployerUsers.Support.Web.Services;
 
-namespace Sfa.Das.Console.Web.Controllers
+namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
 {
-    [System.Web.Http.RoutePrefix("api/manifest")]
+    [RoutePrefix("api/manifest")]
     public class ManifestController : ApiController
     {
         private readonly IEmployerUserRepository _repository;
@@ -46,6 +42,12 @@ namespace Sfa.Das.Console.Web.Controllers
                 ResourceTitle = "Team members",
                 ResourceUrlFormat = "/account/team/{0}",
                 SearchItemsUrl = "/api/manifest/user"
+            };
+
+            yield return new SiteResource
+            {
+                ResourceKey = "user/header",
+                ResourceUrlFormat = "/user/header/{0}"
             };
         }
 

@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Web;
 using Sfa.Das.Console.Web.Logging;
 using SFA.DAS.NLog.Logger;
-using StructureMap;
 using StructureMap.Configuration.DSL;
 
-namespace Sfa.Das.Console.Web.DependencyResolution
+namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
 {
     public class WebRegistry : Registry
     {

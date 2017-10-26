@@ -15,10 +15,9 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Sfa.Das.Console.Web.DependencyResolution {
+namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution {
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
-    using StructureMap;
 	
     public class DefaultRegistry : Registry {
         #region Constructors and Destructors
@@ -28,6 +27,7 @@ namespace Sfa.Das.Console.Web.DependencyResolution {
                 scan => {
                     scan.TheCallingAssembly();
                     scan.WithDefaultConventions();
+					scan.With(new ControllerConvention());
                 });
             //For<IExample>().Use<Example>();
         }

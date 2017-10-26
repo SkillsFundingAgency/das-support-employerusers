@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Sfa.Das.Console.Web.MvcApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="SFA.DAS.EmployerUsers.Support.Web.MvcApplication" Language="C#" %>

@@ -5,15 +5,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
 using ESFA.DAS.Support.Shared;
-using Microsoft.Azure;
 using Sfa.Das.Console.ApplicationServices;
 using Sfa.Das.Console.Core.Configuration;
-using Sfa.Das.Console.Core.Domain.Model;
+using Sfa.Das.Console.Infrastructure;
 using SFA.DAS.EmployerUsers.Api.Client;
 using SFA.DAS.EmployerUsers.Api.Types;
+using SFA.DAS.EmployerUsers.Support.Core.Domain.Model;
 using SFA.DAS.NLog.Logger;
+using User = Sfa.Das.Console.Infrastructure.User;
 
-namespace Sfa.Das.Console.Infrastructure
+namespace SFA.DAS.EmployerUsers.Support.Infrastructure
 {
     public sealed class EmployerUserRepository : IEmployerUserRepository
     {
@@ -61,21 +62,12 @@ namespace Sfa.Das.Console.Infrastructure
 
         public async Task<EmployerUser> Get(string id)
         {
-            try
-            {
-                _logger.Debug($"IEmployerUsersApiClient.GetResource<UserViewModel>(\"/api/users/{id}\");");
-                var response = await _client.GetResource<UserViewModel>($"/api/users/{id}");
+            _logger.Debug($"IEmployerUsersApiClient.GetResource<UserViewModel>(\"/api/users/{id}\");");
+            var response = await _client.GetResource<UserViewModel>($"/api/users/{id}");
 
-                return MapToEmployerUser(response);
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failure connecting to DAS Employer Users API");
-            }
-
-            return null;
+            return MapToEmployerUser(response);
         }
-       
+
         private EmployerUser MapToEmployerUser(UserViewModel data)
         {
             return new EmployerUser
