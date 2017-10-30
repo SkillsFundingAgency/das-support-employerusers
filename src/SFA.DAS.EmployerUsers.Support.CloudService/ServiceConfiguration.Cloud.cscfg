@@ -3,7 +3,7 @@
   <Role name="SFA.DAS.EmployerUsers.Support.Web">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="__StorageConnectionString__" />
       <Setting name="EmpUserApiBaseUrl" value="__EmpUserApiBaseUrl__" />
       <Setting name="EmpUserApiClientId" value="__EmpUserApiClientId__" />
       <Setting name="EmpUserApiClientSecret" value="__EmpUserApiClientSecret__" />
