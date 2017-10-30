@@ -29,8 +29,8 @@
       <Setting name="EmpUserConnectionString"/>
     </ConfigurationSettings>
     <Endpoints>
-      <InputEndpoint name="Endpoint1" protocol="https" port="443" certificate="WebSslCert" loadBalancer="das-cnsl-ilb" />
-      <InputEndpoint name="Endpoint2" protocol="http" port="80" loadBalancer="das-cnsl-ilb" />
+      <InputEndpoint name="Endpoint1" protocol="https" port="443" certificate="WebSslCert" loadBalancer="das-sempu-ilb" />
+      <InputEndpoint name="Endpoint2" protocol="http" port="80" loadBalancer="das-sempu-ilb" />
     </Endpoints>
     <Certificates>
       <Certificate name="WebSslCert" storeLocation="LocalMachine" storeName="My" />
