@@ -40,8 +40,7 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
             {
                 ResourceKey = "account/team",
                 ResourceTitle = "Team members",
-                ResourceUrlFormat = "/account/team/{0}",
-                SearchItemsUrl = "/api/manifest/user"
+                ResourceUrlFormat = "/account/team/{0}"
             };
 
             yield return new SiteResource
@@ -49,6 +48,15 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
                 ResourceKey = "user/header",
                 ResourceUrlFormat = "/user/header/{0}"
             };
+
+            yield return new SiteResource
+            {
+                ResourceKey = "user",
+                ResourceTitle = "Overview",
+                ResourceUrlFormat = "/user/index/{0}",
+                SearchItemsUrl = "/api/manifest/user"
+            };
+
         }
 
         private string GetVersion()
