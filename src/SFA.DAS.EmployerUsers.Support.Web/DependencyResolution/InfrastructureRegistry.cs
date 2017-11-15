@@ -6,6 +6,7 @@ using Sfa.Das.Console.Infrastructure.DependencyResolution;
 using Sfa.Das.Console.Infrastructure.Settings;
 using SFA.DAS.EmployerUsers.Api.Client;
 using SFA.DAS.EmployerUsers.Support.Infrastructure;
+using SFA.DAS.EmployerUsers.Support.Infrastructure.Settings;
 using SFA.DAS.NLog.Logger;
 using StructureMap.Configuration.DSL;
 
@@ -25,12 +26,13 @@ namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
 
             For<IConfigurationSettings>().Use<ApplicationSettings>();
 
+            For<IEmployerUsersApiConfiguration>().Use<EmployerUsersApiSettings>();
+
             For<IEmployerUsersApiClient>().Use("", (ctx) =>
             {
                 var empUserApiSettings = ctx.GetInstance<IEmployerUsersApiConfiguration>();
                 return new EmployerUsersApiClient(empUserApiSettings);
             });
-            For<IEmployerUsersApiConfiguration>().Use<EmployerUsersApiConfiguration>();
 
             For<IEmployerUserRepository>().Use<EmployerUserRepository>();
 
