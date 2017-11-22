@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using SFA.DAS.NLog.Logger;
 
 namespace SFA.DAS.EmployerUsers.Support.Web.Logging
 {

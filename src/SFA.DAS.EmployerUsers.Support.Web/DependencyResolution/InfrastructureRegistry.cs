@@ -4,6 +4,7 @@ using SFA.DAS.EmployerUsers.Support.Core.Services;
 using SFA.DAS.EmployerUsers.Support.Infrastructure;
 using SFA.DAS.EmployerUsers.Support.Infrastructure.DependencyResolution;
 using SFA.DAS.EmployerUsers.Support.Infrastructure.Settings;
+using SFA.DAS.EmployerUsers.Support.Web.Logging;
 using SFA.DAS.NLog.Logger;
 using StructureMap.Configuration.DSL;
 
