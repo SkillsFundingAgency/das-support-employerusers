@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Azure;
-using System.Configuration;
-using Sfa.Das.Console.Core.Configuration;
+﻿using System.Configuration;
+using SFA.DAS.EmployerUsers.Support.Core.Configuration;
 
-namespace Sfa.Das.Console.Infrastructure.Settings
+namespace SFA.DAS.EmployerUsers.Support.Infrastructure.Settings
 {
     public sealed class ApplicationSettings : IConfigurationSettings
     {

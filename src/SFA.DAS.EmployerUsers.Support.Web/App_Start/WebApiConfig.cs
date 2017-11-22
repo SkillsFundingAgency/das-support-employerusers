@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace Sfa.Das.Console.Web
+namespace SFA.DAS.EmployerUsers.Support.Web
 {
     public static class WebApiConfig
     {

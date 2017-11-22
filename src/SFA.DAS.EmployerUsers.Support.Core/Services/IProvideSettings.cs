@@ -1,4 +1,4 @@
-﻿namespace Sfa.Das.Console.Core.Services
+﻿namespace SFA.DAS.EmployerUsers.Support.Core.Services
 {
     public interface IProvideSettings
     {

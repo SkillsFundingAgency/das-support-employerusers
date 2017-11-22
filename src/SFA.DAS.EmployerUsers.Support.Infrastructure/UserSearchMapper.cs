@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using ESFA.DAS.Support.Shared;
-using Sfa.Das.Console.Infrastructure;
-using SFA.DAS.EmployerUsers.Api.Types;
 
-namespace SFA.DAS.EmployerUsers.Support.Web.Services
+namespace SFA.DAS.EmployerUsers.Support.Infrastructure
 {
     public class UserSearchMapper : IMapUserSearchItems
     {

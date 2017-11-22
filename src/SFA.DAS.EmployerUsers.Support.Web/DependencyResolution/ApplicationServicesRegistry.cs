@@ -1,5 +1,4 @@
-﻿using Sfa.Das.Console.Infrastructure;
-using SFA.DAS.EmployerUsers.Support.Web.Services;
+﻿using SFA.DAS.EmployerUsers.Support.Infrastructure;
 using StructureMap.Configuration.DSL;
 
 namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution

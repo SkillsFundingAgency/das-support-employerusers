@@ -1,5 +1,5 @@
 ﻿using System.Web;
-using Sfa.Das.Console.Web.Logging;
+using SFA.DAS.EmployerUsers.Support.Web.Logging;
 using SFA.DAS.NLog.Logger;
 using StructureMap.Configuration.DSL;
 

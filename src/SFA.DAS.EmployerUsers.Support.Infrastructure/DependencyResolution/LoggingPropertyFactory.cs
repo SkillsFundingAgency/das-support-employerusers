@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
 
-namespace Sfa.Das.Console.Infrastructure.DependencyResolution
+namespace SFA.DAS.EmployerUsers.Support.Infrastructure.DependencyResolution
 {
     public class LoggingPropertyFactory : ILoggingPropertyFactory
     {

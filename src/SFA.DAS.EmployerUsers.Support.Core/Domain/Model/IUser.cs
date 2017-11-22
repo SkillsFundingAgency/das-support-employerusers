@@ -1,4 +1,4 @@
-﻿namespace Sfa.Das.Console.Core.Domain.Model
+﻿namespace SFA.DAS.EmployerUsers.Support.Core.Domain.Model
 {
     public interface IUser
     {

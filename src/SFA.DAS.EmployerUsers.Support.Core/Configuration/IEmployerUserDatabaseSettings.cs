@@ -1,4 +1,4 @@
-﻿namespace Sfa.Das.Console.Core.Configuration
+﻿namespace SFA.DAS.EmployerUsers.Support.Core.Configuration
 {
     public interface IEmployerUserDatabaseSettings
     {

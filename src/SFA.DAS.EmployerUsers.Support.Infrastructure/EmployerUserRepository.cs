@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
-using Dapper;
 using ESFA.DAS.Support.Shared;
-using Sfa.Das.Console.ApplicationServices;
-using Sfa.Das.Console.Core.Configuration;
-using Sfa.Das.Console.Infrastructure;
 using SFA.DAS.EmployerUsers.Api.Client;
 using SFA.DAS.EmployerUsers.Api.Types;
+using SFA.DAS.EmployerUsers.Support.Core.Configuration;
 using SFA.DAS.EmployerUsers.Support.Core.Domain.Model;
 using SFA.DAS.NLog.Logger;
-using User = Sfa.Das.Console.Infrastructure.User;
 
 namespace SFA.DAS.EmployerUsers.Support.Infrastructure
 {
@@ -22,7 +18,7 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
         private readonly IMapUserSearchItems _mapper;
         private readonly IEmployerUserDatabaseSettings _settings;
         private readonly ILog _logger;
-
+        private int _accountsPerPage = 10;
         public EmployerUserRepository(ILog logger, IEmployerUsersApiClient client, IMapUserSearchItems mapper, IEmployerUserDatabaseSettings settings)
         {
             _logger = logger;
@@ -31,38 +27,49 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
             _settings = settings;
         }
 
-        public IEnumerable<SearchItem> FindAll()
+        public async Task<IEnumerable<UserViewModel>> FindAllDetails()
         {
-            return GetUsers(Int32.MaxValue, 0).Select(_mapper.Map);
+            var results = new List<UserViewModel>();
+            foreach (var item in await FindAll())
+            {
+                try
+                {
+                    var viewModel = await _client.GetResource<UserViewModel>(item.Id);
+                    
+                    results.Add(viewModel);
+                }
+                catch (HttpRequestException e)
+                {
+                    _logger.Warn($"The Employer User API Http request threw an exception:\r\n{e}");
+                }
+                catch (Exception e)
+                {
+                    _logger.Error(e, $"A general exception has been thrown while requesting employer user detals");
+                }
+            }
+            return results;
         }
 
-        public User[] GetUsers(int limit, int start)
+       private async Task<IEnumerable<UserSummaryViewModel>> FindAll()
         {
-            using (var connection = GetOpenConnection())
+            var results = new List<UserSummaryViewModel>();
+
+            var users = await _client.GetPageOfEmployerUsers(1, _accountsPerPage);
+
+            results.AddRange(users.Data);
+
+            for (var i = 2; i <= users.TotalPages; i++)
             {
-                return connection.Query<User>(@"GetUsers @pageSize, @offSet", new { pageSize = limit, offset = start }).ToArray();
+                var page = await _client.GetPageOfEmployerUsers(i, _accountsPerPage);
+                results.AddRange(page.Data);
             }
+            return results;
         }
 
-        protected SqlConnection GetOpenConnection()
-        {
-            var connection = new SqlConnection(_settings.ConnectionString);
-            try
-            {
-                connection.Open();
-            }
-            catch
-            {
-                connection.Dispose();
-                throw;
-            }
-
-            return connection;
-        }
 
         public async Task<EmployerUser> Get(string id)
         {
-            _logger.Debug($"IEmployerUsersApiClient.GetResource<UserViewModel>(\"/api/users/{id}\");");
+            _logger.Debug($"{nameof(IEmployerUsersApiClient)}.{nameof(_client.GetResource)}<{nameof(UserViewModel)}>(\"/api/users/{id}\");");
             var response = await _client.GetResource<UserViewModel>($"/api/users/{id}");
 
             return MapToEmployerUser(response);
@@ -77,7 +84,7 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
                 LastName = data.LastName,
                 Email = data.Email,
                 IsActive = data.IsActive,
-                FailedLoginAttempts = data.FailedLoginAttempts,
+                FailedLoginAttempts  = data.FailedLoginAttempts,
                 IsLocked = data.IsLocked
             };
 

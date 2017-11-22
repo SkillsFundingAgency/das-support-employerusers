@@ -1,6 +1,6 @@
 ﻿using ESFA.DAS.Support.Shared;
 
-namespace Sfa.Das.Console.Infrastructure
+namespace SFA.DAS.EmployerUsers.Support.Infrastructure
 {
     public interface IMapUserSearchItems
     {

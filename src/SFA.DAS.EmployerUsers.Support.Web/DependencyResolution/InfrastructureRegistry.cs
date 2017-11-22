@@ -1,11 +1,8 @@
-﻿using Sfa.Das.Console.ApplicationServices;
-using Sfa.Das.Console.Core.Configuration;
-using Sfa.Das.Console.Core.Services;
-using Sfa.Das.Console.Infrastructure;
-using Sfa.Das.Console.Infrastructure.DependencyResolution;
-using Sfa.Das.Console.Infrastructure.Settings;
-using SFA.DAS.EmployerUsers.Api.Client;
+﻿using SFA.DAS.EmployerUsers.Api.Client;
+using SFA.DAS.EmployerUsers.Support.Core.Configuration;
+using SFA.DAS.EmployerUsers.Support.Core.Services;
 using SFA.DAS.EmployerUsers.Support.Infrastructure;
+using SFA.DAS.EmployerUsers.Support.Infrastructure.DependencyResolution;
 using SFA.DAS.EmployerUsers.Support.Infrastructure.Settings;
 using SFA.DAS.NLog.Logger;
 using StructureMap.Configuration.DSL;
@@ -36,7 +33,7 @@ namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
 
             For<IEmployerUserRepository>().Use<EmployerUserRepository>();
 
-            For<IEmployerUserDatabaseSettings>().Use<EmployerUserDatabaseSettings>();
+            
         }
     }
 }
