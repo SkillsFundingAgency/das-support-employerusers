@@ -29,30 +29,7 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
             
         }
 
-        public async Task<IEnumerable<UserViewModel>> FindAllDetails()
-        {
-            var results = new List<UserViewModel>();
-            foreach (var item in await FindAll())
-            {
-                try
-                {
-                    var viewModel = await _client.GetResource<UserViewModel>(item.Id);
-                    
-                    results.Add(viewModel);
-                }
-                catch (HttpRequestException e)
-                {
-                    _logger.Warn($"The Employer User API Http request threw an exception:\r\n{e}");
-                }
-                catch (Exception e)
-                {
-                    _logger.Error(e, $"A general exception has been thrown while requesting employer user detals");
-                }
-            }
-            return results;
-        }
-
-       private async Task<IEnumerable<UserSummaryViewModel>> FindAll()
+        public async Task<IEnumerable<UserSummaryViewModel>> FindAllDetails()
         {
             var results = new List<UserSummaryViewModel>();
 
@@ -68,6 +45,7 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
             return results;
         }
 
+      
 
         public async Task<EmployerUser> Get(string id)
         {

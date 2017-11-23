@@ -13,7 +13,7 @@ namespace SFA.DAS.EmployerUsers.Support.Application.Tests
             
         }
 
-        [Test] public void ItShouldTestTheBehaviour(){Assert.Fail();}
+        [Ignore("To be Implemented")][Test] public void ItShouldTestTheBehaviour(){Assert.Fail();}
 
         [Test]
         public void ItShouldFindSearchItems()

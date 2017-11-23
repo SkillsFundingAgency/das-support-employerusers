@@ -22,7 +22,7 @@ namespace SFA.DAS.EmployerUsers.Support.Application.Handlers
             var models = await _userRepository.FindAllDetails();
             return models.Select(MapToSearch).ToList();
         }
-        private SearchItem MapToSearch(UserViewModel arg)
+        private SearchItem MapToSearch(UserSummaryViewModel arg)
         {
             var keywords = new List<string>
             {
