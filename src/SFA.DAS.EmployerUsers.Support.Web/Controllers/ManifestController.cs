@@ -57,7 +57,7 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
                 ResourceKey = "user",
                 ResourceTitle = "Overview",
                 ResourceUrlFormat = "/user/index/{0}",
-                SearchItemsUrl = "/api/manifest/user"
+                SearchItemsUrl = "/api/manifest/search"
             };
 
         }

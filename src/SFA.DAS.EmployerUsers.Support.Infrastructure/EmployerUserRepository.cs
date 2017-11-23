@@ -16,15 +16,17 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
     {
         private readonly IEmployerUsersApiClient _client;
         private readonly IMapUserSearchItems _mapper;
-        private readonly IEmployerUserDatabaseSettings _settings;
         private readonly ILog _logger;
         private int _accountsPerPage = 10;
-        public EmployerUserRepository(ILog logger, IEmployerUsersApiClient client, IMapUserSearchItems mapper, IEmployerUserDatabaseSettings settings)
+        public EmployerUserRepository(
+                ILog logger, 
+                IEmployerUsersApiClient client, 
+                IMapUserSearchItems mapper)
         {
             _logger = logger;
             _client = client;
             _mapper = mapper;
-            _settings = settings;
+            
         }
 
         public async Task<IEnumerable<UserViewModel>> FindAllDetails()
