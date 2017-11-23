@@ -1,4 +1,5 @@
 ﻿using SFA.DAS.EmployerUsers.Api.Client;
+using SFA.DAS.EmployerUsers.Support.Application.Handlers;
 using SFA.DAS.EmployerUsers.Support.Core.Configuration;
 using SFA.DAS.EmployerUsers.Support.Core.Services;
 using SFA.DAS.EmployerUsers.Support.Infrastructure;
@@ -33,7 +34,7 @@ namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
             });
 
             For<IEmployerUserRepository>().Use<EmployerUserRepository>();
-
+            For<IEmployerUserHandler>().Use<EmployerUserHandler>();
             
         }
     }
