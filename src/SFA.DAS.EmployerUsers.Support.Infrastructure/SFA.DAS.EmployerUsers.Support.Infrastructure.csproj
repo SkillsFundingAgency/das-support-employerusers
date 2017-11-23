@@ -131,7 +131,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\AppConfigSettingsProvider.cs" />
     <Compile Include="Settings\ApplicationSettings.cs" />
-    <Compile Include="Settings\EmployerUserDatabaseSettings.cs" />
     <Compile Include="Settings\EmployerUsersApiSettings.cs" />
     <Compile Include="Settings\MachineSettings.cs" />
     <Compile Include="User.cs" />

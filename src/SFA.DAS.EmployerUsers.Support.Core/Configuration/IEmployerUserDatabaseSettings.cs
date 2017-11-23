@@ -4,4 +4,10 @@
     {
         string ConnectionString { get; }
     }
+
+    public class EmployerUserDatabaseSettings : IEmployerUserDatabaseSettings
+    {
+
+        public string ConnectionString { get; }
+    }
 }
