@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
 using ESFA.DAS.Support.Shared;
 using SFA.DAS.EmployerUsers.Api.Client;
@@ -17,7 +16,7 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
         private readonly IEmployerUsersApiClient _client;
         private readonly IMapUserSearchItems _mapper;
         private readonly ILog _logger;
-        private int _accountsPerPage = 10;
+        private int _accountsPerPage = 1000;
         public EmployerUserRepository(
                 ILog logger, 
                 IEmployerUsersApiClient client, 
