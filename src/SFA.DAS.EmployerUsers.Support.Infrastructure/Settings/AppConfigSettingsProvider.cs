@@ -1,8 +1,8 @@
 ﻿using System.Configuration;
 using Microsoft.Azure;
-using Sfa.Das.Console.Core.Services;
+using SFA.DAS.EmployerUsers.Support.Core.Services;
 
-namespace Sfa.Das.Console.Infrastructure.Settings
+namespace SFA.DAS.EmployerUsers.Support.Infrastructure.Settings
 {
     public class AppConfigSettingsProvider : IProvideSettings
     {

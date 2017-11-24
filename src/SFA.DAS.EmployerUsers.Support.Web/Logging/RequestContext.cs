@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using SFA.DAS.NLog.Logger;
 
-namespace Sfa.Das.Console.Web.Logging
+namespace SFA.DAS.EmployerUsers.Support.Web.Logging
 {
     public sealed class RequestContext : IRequestContext
     {

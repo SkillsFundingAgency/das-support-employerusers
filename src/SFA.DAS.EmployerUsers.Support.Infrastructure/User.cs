@@ -1,4 +1,4 @@
-﻿namespace Sfa.Das.Console.Infrastructure
+﻿namespace SFA.DAS.EmployerUsers.Support.Infrastructure
 {
     public class User
     {

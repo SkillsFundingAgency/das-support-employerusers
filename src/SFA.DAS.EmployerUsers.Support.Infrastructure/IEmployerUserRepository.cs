@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using ESFA.DAS.Support.Shared;
-using Sfa.Das.Console.Core.Domain.Model;
+using SFA.DAS.EmployerUsers.Api.Types;
 using SFA.DAS.EmployerUsers.Support.Core.Domain.Model;
 
-namespace Sfa.Das.Console.ApplicationServices
+namespace SFA.DAS.EmployerUsers.Support.Infrastructure
 {
     public interface IEmployerUserRepository
     {
+        Task<IEnumerable<UserSummaryViewModel>> FindAllDetails();
         Task<EmployerUser> Get(string id);
-        IEnumerable<SearchItem> FindAll();
     }
 }

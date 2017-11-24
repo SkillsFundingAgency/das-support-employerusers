@@ -2,7 +2,6 @@
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Sfa.Das.Console.Web;
 using SFA.DAS.NLog.Logger;
 
 namespace SFA.DAS.EmployerUsers.Support.Web

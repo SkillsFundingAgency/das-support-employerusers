@@ -1,5 +1,5 @@
-﻿using Sfa.Das.Console.Core.Services;
-using SFA.DAS.EmployerUsers.Api.Client;
+﻿using SFA.DAS.EmployerUsers.Api.Client;
+using SFA.DAS.EmployerUsers.Support.Core.Services;
 
 namespace SFA.DAS.EmployerUsers.Support.Infrastructure.Settings
 {

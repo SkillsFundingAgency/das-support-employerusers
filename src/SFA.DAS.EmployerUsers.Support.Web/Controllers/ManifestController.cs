@@ -1,21 +1,24 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Web.Http;
 using ESFA.DAS.Support.Shared;
-using Sfa.Das.Console.ApplicationServices;
+using SFA.DAS.EmployerUsers.Support.Application.Handlers;
+using SFA.DAS.EmployerUsers.Support.Infrastructure;
 
 namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
 {
     [RoutePrefix("api/manifest")]
     public class ManifestController : ApiController
     {
-        private readonly IEmployerUserRepository _repository;
+        private IEmployerUserHandler _handler;
 
-        public ManifestController(IEmployerUserRepository repository)
+        public ManifestController(IEmployerUserHandler handler)
         {
-            _repository = repository;
+            _handler = handler;
         }
+
 
         [System.Web.Http.Route("")]
         public SiteManifest Get()
@@ -29,9 +32,9 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<SearchItem> User()
+        public async Task<IEnumerable<SearchItem>> Search()
         {
-            return _repository.FindAll();
+            return await _handler.FindSearchItems();
         } 
 
         private IEnumerable<SiteResource> GetResources()
@@ -54,7 +57,7 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
                 ResourceKey = "user",
                 ResourceTitle = "Overview",
                 ResourceUrlFormat = "/user/index/{0}",
-                SearchItemsUrl = "/api/manifest/user"
+                SearchItemsUrl = "/api/manifest/search"
             };
 
         }

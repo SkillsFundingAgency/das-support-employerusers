@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Sfa.Das.Console.Infrastructure.DependencyResolution
+namespace SFA.DAS.EmployerUsers.Support.Infrastructure.DependencyResolution
 {
     public interface ILoggingPropertyFactory
     {
