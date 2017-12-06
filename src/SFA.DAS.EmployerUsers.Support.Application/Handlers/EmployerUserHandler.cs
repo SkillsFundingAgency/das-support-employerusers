@@ -31,12 +31,10 @@ namespace SFA.DAS.EmployerUsers.Support.Application.Handlers
                 arg.LastName,
                 arg.Email
             };
-
-            
             return new SearchItem
             {
                 SearchId = $"ACC-{arg.Id}",
-                Html = $"<div><a href=\"/resource/?key=account&id={arg.Id}\">{arg.FirstName} {arg.LastName}</a></div>",
+                Html = $"<div><a href=\"/resource/?key=user&id={arg.Id}\">{arg.FirstName} {arg.LastName}</a></div>",
                 Keywords = keywords.Where(x => x != null).ToArray()
             };
         }
