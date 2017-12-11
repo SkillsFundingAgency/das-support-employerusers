@@ -2,17 +2,16 @@
 using System.Diagnostics;
 using System.Reflection;
 using System.Threading.Tasks;
-using System.Web.Http;
+using System.Web.Mvc;
 using ESFA.DAS.Support.Shared;
 using SFA.DAS.EmployerUsers.Support.Application.Handlers;
-using SFA.DAS.EmployerUsers.Support.Infrastructure;
 
 namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
 {
-    [RoutePrefix("api/manifest")]
-    public class ManifestController : ApiController
+    [System.Web.Http.RoutePrefix("api/manifest")]
+    public class ManifestController : Controller
     {
-        private IEmployerUserHandler _handler;
+        private readonly IEmployerUserHandler _handler;
 
         public ManifestController(IEmployerUserHandler handler)
         {
@@ -31,7 +30,7 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
             };
         }
 
-        [HttpGet]
+        [System.Web.Http.HttpGet]
         public async Task<IEnumerable<SearchItem>> Search()
         {
             return await _handler.FindSearchItems();
@@ -39,25 +38,28 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
 
         private IEnumerable<SiteResource> GetResources()
         {
-            yield return new SiteResource
+            return new List<SiteResource>()
             {
-                ResourceKey = "account/team",
-                ResourceTitle = "Team members",
-                ResourceUrlFormat = "/account/team/{0}"
-            };
 
-            yield return new SiteResource
-            {
-                ResourceKey = "user/header",
-                ResourceUrlFormat = "/user/header/{0}"
-            };
+                new SiteResource
+                {
+                    ResourceKey = "account/team",
+                    ResourceTitle = "Team members",
+                    ResourceUrlFormat = "/account/team/{0}"
+                },
 
-            yield return new SiteResource
-            {
-                ResourceKey = "user",
-                ResourceTitle = "Overview",
-                ResourceUrlFormat = "/user/index/{0}",
-                SearchItemsUrl = "/api/manifest/search"
+                new SiteResource
+                {
+                    ResourceKey = "user/header",
+                    ResourceUrlFormat = "/user/header/{0}"
+                },
+                new SiteResource
+                {
+                    ResourceKey = "user",
+                    ResourceTitle = "Overview",
+                    ResourceUrlFormat = "/user/index/{0}",
+                    SearchItemsUrl = "/api/manifest/search"
+                }
             };
 
         }

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using ESFA.DAS.Support.Shared;
 using SFA.DAS.EmployerUsers.Api.Client;
 using SFA.DAS.EmployerUsers.Api.Types;
-using SFA.DAS.EmployerUsers.Support.Core.Configuration;
 using SFA.DAS.EmployerUsers.Support.Core.Domain.Model;
 using SFA.DAS.NLog.Logger;
 
@@ -44,14 +40,16 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
             return results;
         }
 
-      
-
         public async Task<EmployerUser> Get(string id)
         {
             _logger.Debug($"{nameof(IEmployerUsersApiClient)}.{nameof(_client.GetResource)}<{nameof(UserViewModel)}>(\"/api/users/{id}\");");
             var response = await _client.GetResource<UserViewModel>($"/api/users/{id}");
-
+            if (response != null)
             return MapToEmployerUser(response);
+            else
+            {
+                return null as EmployerUser;
+            }
         }
 
         private EmployerUser MapToEmployerUser(UserViewModel data)

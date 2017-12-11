@@ -1,25 +1,35 @@
-﻿using NUnit.Framework;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Moq;
+using NUnit.Framework;
+using SFA.DAS.EmployerUsers.Api.Types;
 using SFA.DAS.EmployerUsers.Support.Application.Handlers;
+using SFA.DAS.EmployerUsers.Support.Infrastructure;
 
 namespace SFA.DAS.EmployerUsers.Support.Application.Tests
 {
     [TestFixture]
     public class WhenTestingEmployerUserHandler
     {
-        private IEmployerUserHandler _unit;
         [SetUp]
         public void Setup()
         {
-            
+            _employerUserRepository = new Mock<IEmployerUserRepository>();
+            _unit = new EmployerUserHandler(_employerUserRepository.Object);
         }
 
-        [Ignore("To be Implemented")][Test] public void ItShouldTestTheBehaviour(){Assert.Fail();}
+        private IEmployerUserHandler _unit;
+        private Mock<IEmployerUserRepository> _employerUserRepository;
+
 
         [Test]
-        public void ItShouldFindSearchItems()
+        public async Task ItShouldFindSearchItems()
         {
-            
+            _employerUserRepository.Setup(x => x.FindAllDetails()).Returns(
+                Task.FromResult(new List<UserSummaryViewModel> {new UserSummaryViewModel {Email = "Someone@tempuri.org"}}.AsEnumerable()));
+            var actual = await _unit.FindSearchItems();
+            CollectionAssert.IsNotEmpty(actual);
         }
-
     }
 }

@@ -1,9 +1,11 @@
 ﻿using System.Configuration;
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.Azure;
 using SFA.DAS.EmployerUsers.Support.Core.Services;
 
 namespace SFA.DAS.EmployerUsers.Support.Infrastructure.Settings
 {
+    [ExcludeFromCodeCoverage]
     public class AppConfigSettingsProvider : IProvideSettings
     {
         private readonly IProvideSettings _baseSettings;

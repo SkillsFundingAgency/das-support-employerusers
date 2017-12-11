@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "SFA.DAS.EmployerUsers.Support.CloudService", "SFA.DAS.EmployerUsers.Support.CloudService\SFA.DAS.EmployerUsers.Support.CloudService.ccproj", "{114C3D2F-1E05-45ED-ACF6-161F534475C6}"
 EndProject
@@ -18,6 +18,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.EmployerUsers.Support.Application.Tests", "SFA.DAS.EmployerUsers.Support.Application.Tests\SFA.DAS.EmployerUsers.Support.Application.Tests.csproj", "{13399F22-96F8-4EBA-9056-E783F65B6CFB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{0575482F-A00D-463E-9A4E-D1C7259939BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.EmployerUsers.Support.Web.Tests", "SFA.DAS.EmployerUsers.Support.Web.Tests\SFA.DAS.EmployerUsers.Support.Web.Tests.csproj", "{FF8C0B64-2DD4-4646-BB05-2EE31E7635F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.EmployerUsers.Support.Infrastructure.Tests", "SFA.DAS.EmployerUsers.Support.Infrastructure.Tests\SFA.DAS.EmployerUsers.Support.Infrastructure.Tests.csproj", "{893B0424-7E0F-49B2-BC72-997B91E7E206}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,12 +57,22 @@ Global
 		{13399F22-96F8-4EBA-9056-E783F65B6CFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13399F22-96F8-4EBA-9056-E783F65B6CFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13399F22-96F8-4EBA-9056-E783F65B6CFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF8C0B64-2DD4-4646-BB05-2EE31E7635F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF8C0B64-2DD4-4646-BB05-2EE31E7635F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF8C0B64-2DD4-4646-BB05-2EE31E7635F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF8C0B64-2DD4-4646-BB05-2EE31E7635F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{893B0424-7E0F-49B2-BC72-997B91E7E206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{893B0424-7E0F-49B2-BC72-997B91E7E206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{893B0424-7E0F-49B2-BC72-997B91E7E206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{893B0424-7E0F-49B2-BC72-997B91E7E206}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{13399F22-96F8-4EBA-9056-E783F65B6CFB} = {0575482F-A00D-463E-9A4E-D1C7259939BC}
+		{FF8C0B64-2DD4-4646-BB05-2EE31E7635F4} = {0575482F-A00D-463E-9A4E-D1C7259939BC}
+		{893B0424-7E0F-49B2-BC72-997B91E7E206} = {0575482F-A00D-463E-9A4E-D1C7259939BC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F4F16FF9-916C-46EF-85A2-1F61468188E3}

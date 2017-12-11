@@ -1,16 +1,17 @@
-﻿using SFA.DAS.EmployerUsers.Api.Client;
+﻿using System.Diagnostics.CodeAnalysis;
+using SFA.DAS.EmployerUsers.Api.Client;
 using SFA.DAS.EmployerUsers.Support.Application.Handlers;
 using SFA.DAS.EmployerUsers.Support.Core.Configuration;
 using SFA.DAS.EmployerUsers.Support.Core.Services;
 using SFA.DAS.EmployerUsers.Support.Infrastructure;
 using SFA.DAS.EmployerUsers.Support.Infrastructure.DependencyResolution;
 using SFA.DAS.EmployerUsers.Support.Infrastructure.Settings;
-using SFA.DAS.EmployerUsers.Support.Web.Logging;
 using SFA.DAS.NLog.Logger;
 using StructureMap.Configuration.DSL;
 
 namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
 {
+    [ExcludeFromCodeCoverage]
     public class InfrastructureRegistry : Registry
     {
         public InfrastructureRegistry()

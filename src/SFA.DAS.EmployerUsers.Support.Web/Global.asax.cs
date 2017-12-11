@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -6,6 +7,7 @@ using SFA.DAS.NLog.Logger;
 
 namespace SFA.DAS.EmployerUsers.Support.Web
 {
+    [ExcludeFromCodeCoverage]
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using Newtonsoft.Json;
 
 namespace ESFA.DAS.Support.Shared
 {
+    [ExcludeFromCodeCoverage]
     public class ResultPage<T>
     {
         [JsonProperty("_links")]

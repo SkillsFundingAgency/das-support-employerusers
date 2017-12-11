@@ -1,5 +1,8 @@
-﻿namespace SFA.DAS.EmployerUsers.Support.Core.Domain.Model
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace SFA.DAS.EmployerUsers.Support.Core.Domain.Model
 {
+    [ExcludeFromCodeCoverage]
     public class EmployerUser : IUser
     {
         public string Id { get; set; }

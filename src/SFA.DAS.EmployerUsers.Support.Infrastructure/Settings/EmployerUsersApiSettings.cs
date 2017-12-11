@@ -1,8 +1,10 @@
-﻿using SFA.DAS.EmployerUsers.Api.Client;
+﻿using System.Diagnostics.CodeAnalysis;
+using SFA.DAS.EmployerUsers.Api.Client;
 using SFA.DAS.EmployerUsers.Support.Core.Services;
 
 namespace SFA.DAS.EmployerUsers.Support.Infrastructure.Settings
 {
+    [ExcludeFromCodeCoverage]
     public class EmployerUsersApiSettings : IEmployerUsersApiConfiguration
     {
         private readonly IProvideSettings _settings;

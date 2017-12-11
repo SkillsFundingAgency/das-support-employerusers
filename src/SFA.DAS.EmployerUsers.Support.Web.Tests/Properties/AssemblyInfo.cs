@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SFA.DAS.EmployerUsers.Support.Application.Tests")]
+[assembly: AssemblyTitle("SFA.DAS.EmployerUsers.Support.Web.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SFA.DAS.EmployerUsers.Support.Application.Tests")]
+[assembly: AssemblyProduct("SFA.DAS.EmployerUsers.Support.Web.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("13399f22-96f8-4eba-9056-e783f65b6cfb")]
+[assembly: Guid("ff8c0b64-2dd4-4646-bb05-2ee31e7635f4")]
 
 // Version information for an assembly consists of the following four values:
 //
