@@ -20,14 +20,14 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Tests
             _unit = new ManifestController(_employerUserHandler.Object);
 
 
-            _urlHelper = new Mock<UrlHelper>();
+            _urlHelper = new Mock<System.Web.Http.Routing.UrlHelper>();
             _unit.Url = _urlHelper.Object;
             _urlHelper.Setup(x => x.Content(It.IsAny<string>())).Returns(@"~\");
         }
 
         private ManifestController _unit;
         private Mock<IEmployerUserHandler> _employerUserHandler;
-        private Mock<UrlHelper> _urlHelper;
+        private Mock<System.Web.Http.Routing.UrlHelper> _urlHelper;
 
         [Test]
         public async Task ItShouldReturnAllOfTheSearchItems()

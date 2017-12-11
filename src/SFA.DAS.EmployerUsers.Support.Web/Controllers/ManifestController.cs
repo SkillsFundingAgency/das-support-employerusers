@@ -2,14 +2,14 @@
 using System.Diagnostics;
 using System.Reflection;
 using System.Threading.Tasks;
-using System.Web.Mvc;
+using System.Web.Http;
 using ESFA.DAS.Support.Shared;
 using SFA.DAS.EmployerUsers.Support.Application.Handlers;
 
 namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
 {
     [System.Web.Http.RoutePrefix("api/manifest")]
-    public class ManifestController : Controller
+    public class ManifestController : ApiController
     {
         private readonly IEmployerUserHandler _handler;
 
