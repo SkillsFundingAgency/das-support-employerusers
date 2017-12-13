@@ -10,31 +10,27 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
     public sealed class EmployerUserRepository : IEmployerUserRepository
     {
         private readonly IEmployerUsersApiClient _client;
-        private readonly IMapUserSearchItems _mapper;
         private readonly ILog _logger;
-        private int _accountsPerPage = 1000;
+        private int _usersPerPage = 1000;
         public EmployerUserRepository(
                 ILog logger, 
-                IEmployerUsersApiClient client, 
-                IMapUserSearchItems mapper)
+                IEmployerUsersApiClient client)
         {
             _logger = logger;
             _client = client;
-            _mapper = mapper;
-            
         }
 
         public async Task<IEnumerable<UserSummaryViewModel>> FindAllDetails()
         {
             var results = new List<UserSummaryViewModel>();
 
-            var users = await _client.GetPageOfEmployerUsers(1, _accountsPerPage);
+            var users = await _client.GetPageOfEmployerUsers(1, _usersPerPage);
 
             results.AddRange(users.Data);
 
             for (var i = 2; i <= users.TotalPages; i++)
             {
-                var page = await _client.GetPageOfEmployerUsers(i, _accountsPerPage);
+                var page = await _client.GetPageOfEmployerUsers(i, _usersPerPage);
                 results.AddRange(page.Data);
             }
             return results;

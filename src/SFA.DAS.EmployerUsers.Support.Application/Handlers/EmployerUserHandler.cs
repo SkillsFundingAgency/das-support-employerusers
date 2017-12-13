@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ESFA.DAS.Support.Shared;
+using SFA.DAS.Support.Shared;
 using SFA.DAS.EmployerUsers.Api.Types;
 using SFA.DAS.EmployerUsers.Support.Infrastructure;
+using Newtonsoft.Json;
+using SFA.DAS.EmployerUsers.Support.Core.Domain.Model;
 
 namespace SFA.DAS.EmployerUsers.Support.Application.Handlers
 {
@@ -22,23 +24,24 @@ namespace SFA.DAS.EmployerUsers.Support.Application.Handlers
             var models = await _userRepository.FindAllDetails();
             return models.Select(MapToSearch).ToList();
         }
-        private SearchItem MapToSearch(UserSummaryViewModel arg)
+        private SearchItem MapToSearch(UserSummaryViewModel user)
         {
             var keywords = new List<string>
             {
-                arg.Id,
-                arg.FirstName,
-                arg.LastName,
-                arg.Email
+                user.FirstName,
+                user.LastName,
+                user.Email
             };
 
-            
             return new SearchItem
             {
-                SearchId = $"ACC-{arg.Id}",
-                Html = $"<div><a href=\"/resource/?key=account&id={arg.Id}\">{arg.FirstName} {arg.LastName}</a></div>",
-                Keywords = keywords.Where(x => x != null).ToArray()
+                SearchId = user.Id,
+                Keywords = keywords.Where(x => x != null).ToArray(),
+                SearchResultJson = JsonConvert.SerializeObject(user),
+                SearchResultCategory = GlobalConstants.SearchResultCategory
             };
+
+            // Html = $"<div><a href=\"/resource/?key=account&id={arg.Id}\">{arg.FirstName} {arg.LastName}</a></div>",
         }
     }
 }

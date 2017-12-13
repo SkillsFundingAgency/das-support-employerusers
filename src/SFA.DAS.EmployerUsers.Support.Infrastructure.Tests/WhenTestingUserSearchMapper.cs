@@ -12,7 +12,13 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure.Tests
         [SetUp]
         public void Setup()
         {
-            _user = new User(){Email = "someone@tempuri.org", FirstName = "Test", LastName = "User"};
+            _user = new User()
+            {
+                Id = "USER100",
+                Email = "someone@tempuri.org",
+                FirstName = "Test",
+                LastName = "User"
+            };
             _unit = new UserSearchMapper();
         }
 
@@ -27,14 +33,14 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure.Tests
         public void ItShouldMapTheUserId()
         {
             var actual = _unit.Map(_user);
-            Assert.AreEqual($"USER-{_user.Id}", actual.SearchId);
+            Assert.AreEqual("USER100", actual.SearchId);
 
         }
         [Test]
-        public void ItShouldMapAnHtmlLinkContainingUserLookupUri()
+        public void ItShouldMapThenItShouldMapSearchResultCategory()
         {
             var actual = _unit.Map(_user);
-            Assert.IsTrue( actual.Html.Contains($"?key=user&id={_user.Id}"));
+            Assert.AreEqual("USER", actual.SearchResultCategory);
 
         }
 

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace ESFA.DAS.Support.Shared
+namespace SFA.DAS.Support.Shared
 {
     [ExcludeFromCodeCoverage]
     public class SearchItem
@@ -9,6 +9,8 @@ namespace ESFA.DAS.Support.Shared
 
         public string[] Keywords { get; set; }
 
-        public string Html { get; set; }
+        public string SearchResultJson { get; set; }
+
+        public string SearchResultCategory { get; set; }
     }
 }

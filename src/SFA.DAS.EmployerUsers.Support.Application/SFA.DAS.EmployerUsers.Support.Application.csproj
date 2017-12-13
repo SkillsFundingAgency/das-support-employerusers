@@ -58,6 +58,10 @@
       <Project>{E4B62128-974D-4787-8FE6-7A249E2D25A9}</Project>
       <Name>ESFA.DAS.Support.Shared</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SFA.DAS.EmployerUsers.Support.Core\SFA.DAS.EmployerUsers.Support.Core.csproj">
+      <Project>{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}</Project>
+      <Name>SFA.DAS.EmployerUsers.Support.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SFA.DAS.EmployerUsers.Support.Infrastructure\SFA.DAS.EmployerUsers.Support.Infrastructure.csproj">
       <Project>{4cc506ae-f6bc-46b2-910a-d6bf29da8d90}</Project>
       <Name>SFA.DAS.EmployerUsers.Support.Infrastructure</Name>

@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="Configuration\IConfigurationSettings.cs" />
     <Compile Include="Domain\Model\EmployerUser.cs" />
+    <Compile Include="Domain\Model\GlobalConstants.cs" />
     <Compile Include="Domain\Model\IUser.cs" />
     <Compile Include="Domain\Model\User.cs" />
     <Compile Include="Domain\Model\UserStatus.cs" />

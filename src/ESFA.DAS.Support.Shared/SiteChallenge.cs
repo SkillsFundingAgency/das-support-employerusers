@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace ESFA.DAS.Support.Shared
+namespace SFA.DAS.Support.Shared
 {
     [ExcludeFromCodeCoverage]
     public class SiteChallenge
