@@ -8,7 +8,7 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
 {
     public interface IEmployerUserRepository
     {
-        Task<IEnumerable<UserSummaryViewModel>> FindAllDetails();
+        Task<IEnumerable<EmployerUser>> FindAllDetails();
         Task<EmployerUser> Get(string id);
     }
 }

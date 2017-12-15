@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using SFA.DAS.EmployerUsers.Api.Client;
 using SFA.DAS.EmployerUsers.Api.Types;
@@ -20,7 +21,7 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
             _client = client;
         }
 
-        public async Task<IEnumerable<UserSummaryViewModel>> FindAllDetails()
+        public async Task<IEnumerable<EmployerUser>> FindAllDetails()
         {
             var results = new List<UserSummaryViewModel>();
 
@@ -33,7 +34,7 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
                 var page = await _client.GetPageOfEmployerUsers(i, _usersPerPage);
                 results.AddRange(page.Data);
             }
-            return results;
+            return results?.Select(x => MapToEmployerUser(x));
         }
 
         public async Task<EmployerUser> Get(string id)
@@ -58,6 +59,20 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
                 Email = data.Email,
                 IsActive = data.IsActive,
                 FailedLoginAttempts  = data.FailedLoginAttempts,
+                IsLocked = data.IsLocked
+            };
+
+        }
+
+        private EmployerUser MapToEmployerUser(UserSummaryViewModel data)
+        {
+            return new EmployerUser
+            {
+                Id = data.Id,
+                FirstName = data.FirstName,
+                LastName = data.LastName,
+                Email = data.Email,
+                IsActive = data.IsActive,
                 IsLocked = data.IsLocked
             };
 

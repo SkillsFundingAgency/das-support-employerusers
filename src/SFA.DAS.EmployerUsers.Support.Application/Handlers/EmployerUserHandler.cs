@@ -12,36 +12,20 @@ namespace SFA.DAS.EmployerUsers.Support.Application.Handlers
     public class EmployerUserHandler : IEmployerUserHandler
     {
         private readonly IEmployerUserRepository _userRepository;
+        private readonly IMapUserSearchItems _mapUserSearchItems;
 
-        public EmployerUserHandler(IEmployerUserRepository userRepository)
+        public EmployerUserHandler(IEmployerUserRepository userRepository, IMapUserSearchItems mapUserSearchItems)
         {
             _userRepository = userRepository;
+            _mapUserSearchItems = mapUserSearchItems;
         }
 
         public async Task<IEnumerable<SearchItem>> FindSearchItems()
         {
 
             var models = await _userRepository.FindAllDetails();
-            return models.Select(MapToSearch).ToList();
+            return models.Select(m => _mapUserSearchItems.Map(m)).ToList();
         }
-        private SearchItem MapToSearch(UserSummaryViewModel user)
-        {
-            var keywords = new List<string>
-            {
-                user.FirstName,
-                user.LastName,
-                user.Email
-            };
-
-            return new SearchItem
-            {
-                SearchId = user.Id,
-                Keywords = keywords.Where(x => x != null).ToArray(),
-                SearchResultJson = JsonConvert.SerializeObject(user),
-                SearchResultCategory = GlobalConstants.SearchResultCategory
-            };
-
-            // Html = $"<div><a href=\"/resource/?key=account&id={arg.Id}\">{arg.FirstName} {arg.LastName}</a></div>",
-        }
+      
     }
 }

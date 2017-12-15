@@ -3,7 +3,7 @@
 namespace SFA.DAS.EmployerUsers.Support.Infrastructure
 {
     [ExcludeFromCodeCoverage]
-    public class User
+    public class SaerchUserModel
     {
         public string Id { get; set; }
         public string Name
@@ -14,10 +14,8 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
             }
         }
         public string Email { get; set; }
-        public bool Status { get; set; }
+        public string Status { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
-        public string Account { get; set; }
     }
 }

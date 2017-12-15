@@ -27,6 +27,7 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
             {
                 Version = GetVersion(),
                 Resources = GetResources(),
+                SearchResultsMetadata = GetSearchResultsMetadata(),
                 BaseUrl = Url.Content("~/")
             };
         }
@@ -92,15 +93,6 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
                       new SearchColumnDefinition
                       {
                           Name = "Email",
-                      },
-                      new SearchColumnDefinition
-                      {
-                          Name = "Account",
-                           Link = new LinkDefinition
-                          {
-                              Format = "/resource/?key=account&id={0}",
-                              MapColumnName = "ID"
-                          }
                       },
                       new SearchColumnDefinition
                       {

@@ -115,7 +115,7 @@
     <Compile Include="Settings\ApplicationSettings.cs" />
     <Compile Include="Settings\EmployerUsersApiSettings.cs" />
     <Compile Include="Settings\MachineSettings.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="SaerchUserModel.cs" />
     <Compile Include="UserSearchMapper.cs" />
   </ItemGroup>
   <ItemGroup>
