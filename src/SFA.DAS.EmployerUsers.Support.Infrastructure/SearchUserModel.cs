@@ -3,7 +3,7 @@
 namespace SFA.DAS.EmployerUsers.Support.Infrastructure
 {
     [ExcludeFromCodeCoverage]
-    public class SaerchUserModel
+    public class SearchUserModel
     {
         public string Id { get; set; }
         public string Name

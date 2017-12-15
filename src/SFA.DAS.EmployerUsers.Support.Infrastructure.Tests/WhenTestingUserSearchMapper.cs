@@ -7,12 +7,12 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure.Tests
     {
 
         private IMapUserSearchItems _unit;
-        private SaerchUserModel _user;
+        private SearchUserModel _user;
 
         [SetUp]
         public void Setup()
         {
-            _user = new SaerchUserModel()
+            _user = new SearchUserModel()
             {
                 Id = "USER100",
                 Email = "someone@tempuri.org",

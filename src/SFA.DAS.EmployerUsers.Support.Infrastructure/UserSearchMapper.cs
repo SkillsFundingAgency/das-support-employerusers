@@ -19,7 +19,7 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
                 user.LastName
             };
 
-            var searchUser = new SaerchUserModel
+            var searchUser = new SearchUserModel
             {
                 Id = user.Id,
                 Email = string.IsNullOrEmpty(user.Email) ? "NA" :user.Email,

@@ -6,6 +6,7 @@ using System.Web.Http;
 using SFA.DAS.Support.Shared;
 using SFA.DAS.EmployerUsers.Support.Application.Handlers;
 using SFA.DAS.EmployerUsers.Support.Core.Domain.Model;
+using SFA.DAS.EmployerUsers.Support.Infrastructure;
 
 namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
 {
@@ -78,25 +79,25 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
                   {
                       new SearchColumnDefinition
                       {
-                         Name = "Id",
+                         Name = nameof(SearchUserModel.Id),
                          HideColumn = true
                       },
                       new SearchColumnDefinition
                       {
-                          Name = "Name",
+                          Name = nameof(SearchUserModel.Name),
                           Link = new LinkDefinition
                           {
                               Format = "/resource/?key=user&id={0}",
-                              MapColumnName = "ID"
+                              MapColumnName =  nameof(SearchUserModel.Id)
                           }
                       },
                       new SearchColumnDefinition
                       {
-                          Name = "Email",
+                          Name = nameof(SearchUserModel.Email),
                       },
                       new SearchColumnDefinition
                       {
-                            Name = "Status"
+                            Name = nameof(SearchUserModel.Status)
                       }
                   }
 
@@ -104,9 +105,6 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
             };
 
         }
-
-
-
         private string GetVersion()
         {
             var assembly = Assembly.GetExecutingAssembly();
