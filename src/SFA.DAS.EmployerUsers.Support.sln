@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.EmployerUsers.Suppo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.EmployerUsers.Support.Core", "SFA.DAS.EmployerUsers.Support.Core\SFA.DAS.EmployerUsers.Support.Core.csproj", "{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DAS.Support.Shared", "ESFA.DAS.Support.Shared\ESFA.DAS.Support.Shared.csproj", "{E4B62128-974D-4787-8FE6-7A249E2D25A9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.EmployerUsers.Support.Application.Tests", "SFA.DAS.EmployerUsers.Support.Application.Tests\SFA.DAS.EmployerUsers.Support.Application.Tests.csproj", "{13399F22-96F8-4EBA-9056-E783F65B6CFB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{0575482F-A00D-463E-9A4E-D1C7259939BC}"
@@ -57,10 +55,6 @@ Global
 		{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E4B62128-974D-4787-8FE6-7A249E2D25A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4B62128-974D-4787-8FE6-7A249E2D25A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4B62128-974D-4787-8FE6-7A249E2D25A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4B62128-974D-4787-8FE6-7A249E2D25A9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{13399F22-96F8-4EBA-9056-E783F65B6CFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{13399F22-96F8-4EBA-9056-E783F65B6CFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13399F22-96F8-4EBA-9056-E783F65B6CFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
