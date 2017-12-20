@@ -39,8 +39,12 @@
     <Reference Include="SFA.DAS.EmployerUsers.Api.Types, Version=1.0.0.35840, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SFA.DAS.EmployerUsers.Api.Types.1.0.0.35840\lib\net45\SFA.DAS.EmployerUsers.Api.Types.dll</HintPath>
     </Reference>
+    <Reference Include="SFA.DAS.Support.Shared, Version=1.0.0.49994, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SFA.DAS.Support.Shared.1.0.0.49994\lib\net462\SFA.DAS.Support.Shared.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -54,10 +58,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ESFA.DAS.Support.Shared\ESFA.DAS.Support.Shared.csproj">
-      <Project>{E4B62128-974D-4787-8FE6-7A249E2D25A9}</Project>
-      <Name>ESFA.DAS.Support.Shared</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SFA.DAS.EmployerUsers.Support.Infrastructure\SFA.DAS.EmployerUsers.Support.Infrastructure.csproj">
       <Project>{4cc506ae-f6bc-46b2-910a-d6bf29da8d90}</Project>
       <Name>SFA.DAS.EmployerUsers.Support.Infrastructure</Name>
