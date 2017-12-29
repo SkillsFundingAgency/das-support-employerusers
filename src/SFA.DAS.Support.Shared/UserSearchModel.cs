@@ -1,9 +1,8 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace SFA.DAS.EmployerUsers.Support.Infrastructure
+﻿
+namespace SFA.DAS.Support.Shared
 {
-    [ExcludeFromCodeCoverage]
-    public class SearchUserModel
+
+    public class UserSearchModel
     {
         public string Id { get; set; }
         public string Name
@@ -17,5 +16,7 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
         public string Status { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+
+        public SearchCategory SearchType { get; set; }
     }
 }

@@ -108,15 +108,12 @@
     <Compile Include="DependencyResolution\ILoggingPropertyFactory.cs" />
     <Compile Include="DependencyResolution\LoggingPropertyFactory.cs" />
     <Compile Include="IEmployerUserRepository.cs" />
-    <Compile Include="IMapUserSearchItems.cs" />
     <Compile Include="EmployerUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\AppConfigSettingsProvider.cs" />
     <Compile Include="Settings\ApplicationSettings.cs" />
     <Compile Include="Settings\EmployerUsersApiSettings.cs" />
     <Compile Include="Settings\MachineSettings.cs" />
-    <Compile Include="SearchUserModel.cs" />
-    <Compile Include="UserSearchMapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -125,13 +122,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ESFA.DAS.Support.Shared\ESFA.DAS.Support.Shared.csproj">
-      <Project>{E4B62128-974D-4787-8FE6-7A249E2D25A9}</Project>
-      <Name>ESFA.DAS.Support.Shared</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SFA.DAS.EmployerUsers.Support.Core\SFA.DAS.EmployerUsers.Support.Core.csproj">
       <Project>{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}</Project>
       <Name>SFA.DAS.EmployerUsers.Support.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SFA.DAS.Support.Shared\SFA.DAS.Support.Shared.csproj">
+      <Project>{5fc1f599-1d96-450c-95c6-503f85444b12}</Project>
+      <Name>SFA.DAS.Support.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

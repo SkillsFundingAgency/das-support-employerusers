@@ -16,7 +16,6 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure.Tests
         private IEmployerUserRepository _unit;
         private Mock<ILog> _logger;
         private Mock<IEmployerUsersApiClient> _employerUserApiClient;
-        private Mock<IMapUserSearchItems> _mapUserSearchItems;
         private string _id = "123";
 
         [SetUp]
@@ -24,7 +23,6 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure.Tests
         {
             _logger = new Mock<ILog>();
             _employerUserApiClient = new Mock<IEmployerUsersApiClient>();
-            _mapUserSearchItems = new Mock<IMapUserSearchItems>();
             _unit = new EmployerUserRepository(_logger.Object, _employerUserApiClient.Object);
             
         }

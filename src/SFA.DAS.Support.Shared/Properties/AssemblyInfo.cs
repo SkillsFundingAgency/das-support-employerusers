@@ -1,15 +1,14 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ESFA.DAS.Support.Shared")]
+[assembly: AssemblyTitle("SFA.DAS.Support.Shared")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ESFA.DAS.Support.Shared")]
+[assembly: AssemblyProduct("SFA.DAS.Support.Shared")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e4b62128-974d-4787-8fe6-7a249e2d25a9")]
+[assembly: Guid("5fc1f599-1d96-450c-95c6-503f85444b12")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -9,7 +9,6 @@ namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
     {
         public ApplicationServicesRegistry()
         {
-            For<IMapUserSearchItems>().Use<UserSearchMapper>();
         }
     }
 }

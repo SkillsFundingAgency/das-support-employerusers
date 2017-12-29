@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using SFA.DAS.Support.Shared;
 using SFA.DAS.EmployerUsers.Support.Application.Handlers;
-using SFA.DAS.EmployerUsers.Support.Core.Domain.Model;
-using SFA.DAS.EmployerUsers.Support.Infrastructure;
 
 namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
 {
@@ -22,28 +20,27 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
 
 
         [Route("")]
-        public SiteManifest Get()
+        public IHttpActionResult Get()
         {
-            return new SiteManifest
+            return Json(new SiteManifest
             {
                 Version = GetVersion(),
                 Resources = GetResources(),
-                SearchResultsMetadata = GetSearchResultsMetadata(),
                 BaseUrl = Url.Content("~/")
-            };
+            });
         }
 
         [HttpGet]
-        public async Task<IEnumerable<SearchItem>> Search()
+        public async Task<IHttpActionResult> Search()
         {
-            return await _handler.FindSearchItems();
+            var model = await _handler.FindSearchItems();
+            return Json(model);
         }
 
         private IEnumerable<SiteResource> GetResources()
         {
             return new List<SiteResource>()
             {
-
                 new SiteResource
                 {
                     ResourceKey = "account/team",
@@ -61,50 +58,13 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
                     ResourceKey = "user",
                     ResourceTitle = "Overview",
                     ResourceUrlFormat = "/user/index/{0}",
-                    SearchItemsUrl = "/api/manifest/search"
+                    SearchItemsUrl = "/api/manifest/search",
+                    SearchCategory = SearchCategory.User
                 }
             };
 
         }
 
-        private IEnumerable<SearchResultMetadata> GetSearchResultsMetadata()
-        {
-            return new List<SearchResultMetadata>()
-            {
-
-                new SearchResultMetadata
-                {
-                  SearchResultCategory = GlobalConstants.SearchResultCategory,
-                  ColumnDefinitions = new List<SearchColumnDefinition>
-                  {
-                      new SearchColumnDefinition
-                      {
-                         Name = nameof(SearchUserModel.Id),
-                         HideColumn = true
-                      },
-                      new SearchColumnDefinition
-                      {
-                          Name = nameof(SearchUserModel.Name),
-                          Link = new LinkDefinition
-                          {
-                              Format = "/resource/?key=user&id={0}",
-                              MapColumnName =  nameof(SearchUserModel.Id)
-                          }
-                      },
-                      new SearchColumnDefinition
-                      {
-                          Name = nameof(SearchUserModel.Email),
-                      },
-                      new SearchColumnDefinition
-                      {
-                            Name = nameof(SearchUserModel.Status)
-                      }
-                  }
-
-                }
-            };
-
-        }
         private string GetVersion()
         {
             var assembly = Assembly.GetExecutingAssembly();

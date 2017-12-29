@@ -4,27 +4,38 @@ using System.Threading.Tasks;
 using SFA.DAS.Support.Shared;
 using SFA.DAS.EmployerUsers.Api.Types;
 using SFA.DAS.EmployerUsers.Support.Infrastructure;
-using Newtonsoft.Json;
 using SFA.DAS.EmployerUsers.Support.Core.Domain.Model;
+using System;
 
 namespace SFA.DAS.EmployerUsers.Support.Application.Handlers
 {
     public class EmployerUserHandler : IEmployerUserHandler
     {
         private readonly IEmployerUserRepository _userRepository;
-        private readonly IMapUserSearchItems _mapUserSearchItems;
 
-        public EmployerUserHandler(IEmployerUserRepository userRepository, IMapUserSearchItems mapUserSearchItems)
+        public EmployerUserHandler(IEmployerUserRepository userRepository)
         {
             _userRepository = userRepository;
-            _mapUserSearchItems = mapUserSearchItems;
         }
 
-        public async Task<IEnumerable<SearchItem>> FindSearchItems()
+        public async Task<IEnumerable<UserSearchModel>> FindSearchItems()
         {
 
             var models = await _userRepository.FindAllDetails();
-            return models.Select(m => _mapUserSearchItems.Map(m)).ToList();
+            return models.Select(m => Map(m)).ToList();
+        }
+
+        public UserSearchModel Map(EmployerUser employerUser)
+        {
+            return new UserSearchModel
+            {
+                Id = employerUser.Id,
+                Email =  string.IsNullOrEmpty(employerUser.Email) ? "NA" : employerUser.Email,
+                FirstName = employerUser.FirstName,
+                LastName = employerUser.LastName,
+                Status = Enum.GetName(typeof(UserStatus), employerUser.Status),
+                SearchType = SearchCategory.User
+            };
         }
       
     }

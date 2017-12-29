@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2010
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "SFA.DAS.EmployerUsers.Support.CloudService", "SFA.DAS.EmployerUsers.Support.CloudService\SFA.DAS.EmployerUsers.Support.CloudService.ccproj", "{114C3D2F-1E05-45ED-ACF6-161F534475C6}"
 EndProject
@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.EmployerUsers.Suppo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.EmployerUsers.Support.Core", "SFA.DAS.EmployerUsers.Support.Core\SFA.DAS.EmployerUsers.Support.Core.csproj", "{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DAS.Support.Shared", "ESFA.DAS.Support.Shared\ESFA.DAS.Support.Shared.csproj", "{E4B62128-974D-4787-8FE6-7A249E2D25A9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.EmployerUsers.Support.Application.Tests", "SFA.DAS.EmployerUsers.Support.Application.Tests\SFA.DAS.EmployerUsers.Support.Application.Tests.csproj", "{13399F22-96F8-4EBA-9056-E783F65B6CFB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{0575482F-A00D-463E-9A4E-D1C7259939BC}"
@@ -22,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.EmployerUsers.Support.Web.Tests", "SFA.DAS.EmployerUsers.Support.Web.Tests\SFA.DAS.EmployerUsers.Support.Web.Tests.csproj", "{FF8C0B64-2DD4-4646-BB05-2EE31E7635F4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.EmployerUsers.Support.Infrastructure.Tests", "SFA.DAS.EmployerUsers.Support.Infrastructure.Tests\SFA.DAS.EmployerUsers.Support.Infrastructure.Tests.csproj", "{893B0424-7E0F-49B2-BC72-997B91E7E206}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.Support.Shared", "SFA.DAS.Support.Shared\SFA.DAS.Support.Shared.csproj", "{5FC1F599-1D96-450C-95C6-503F85444B12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,10 +49,6 @@ Global
 		{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E4B62128-974D-4787-8FE6-7A249E2D25A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4B62128-974D-4787-8FE6-7A249E2D25A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4B62128-974D-4787-8FE6-7A249E2D25A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4B62128-974D-4787-8FE6-7A249E2D25A9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{13399F22-96F8-4EBA-9056-E783F65B6CFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{13399F22-96F8-4EBA-9056-E783F65B6CFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13399F22-96F8-4EBA-9056-E783F65B6CFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -65,6 +61,10 @@ Global
 		{893B0424-7E0F-49B2-BC72-997B91E7E206}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{893B0424-7E0F-49B2-BC72-997B91E7E206}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{893B0424-7E0F-49B2-BC72-997B91E7E206}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FC1F599-1D96-450C-95C6-503F85444B12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FC1F599-1D96-450C-95C6-503F85444B12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FC1F599-1D96-450C-95C6-503F85444B12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FC1F599-1D96-450C-95C6-503F85444B12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
