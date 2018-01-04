@@ -15,13 +15,22 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution {
+namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
+{
+    using Microsoft.Azure;
+    using SFA.DAS.Configuration;
+    using SFA.DAS.Configuration.AzureTableStorage;
+    using SFA.DAS.EmployerUsers.Api.Client;
+    using SFA.DAS.EmployerUsers.Support.Web.Configuration;
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
     using System.Diagnostics.CodeAnalysis;
 
     [ExcludeFromCodeCoverage]
     public class DefaultRegistry : Registry {
+        private const string ServiceName = "SFA.DAS.Support.EmployerUsers";
+        private const string Version = "1.0";
+      
         #region Constructors and Destructors
 
         public DefaultRegistry() {
@@ -31,7 +40,28 @@ namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution {
                     scan.WithDefaultConventions();
 					scan.With(new ControllerConvention());
                 });
-            //For<IExample>().Use<Example>();
+            WebConfiguration configuration = GetConfiguration();
+
+            For<IWebConfiguration>().Use(configuration);
+            For<IEmployerUsersApiConfiguration>().Use( configuration.EmployerUsersApi);
+        }
+
+        private WebConfiguration GetConfiguration()
+        {
+            var environment = CloudConfigurationManager.GetSetting("EnvironmentName") ?? 
+                              "LOCAL";
+            var storageConnectionString = CloudConfigurationManager.GetSetting("ConfigurationStorageConnectionString") ??
+                                          "UseDevelopmentStorage=true;";
+
+            var configurationRepository = new AzureTableStorageConfigurationRepository(storageConnectionString); ;
+
+            var configurationOptions = new ConfigurationOptions(ServiceName, environment, Version);
+
+            var configurationService = new ConfigurationService(configurationRepository, configurationOptions);
+
+            var webConfiguration = configurationService.Get<WebConfiguration>();    
+
+            return webConfiguration;
         }
 
         #endregion
