@@ -10,16 +10,10 @@
     </Sites>
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
-      <Setting name="EmpUserApiBaseUrl" />
-      <Setting name="EmpUserApiClientId" />
-      <Setting name="EmpUserApiClientSecret" />
-      <Setting name="EmpUserApiIdentifierUri" />
-      <Setting name="EmpUserApiTenant" />
-      <Setting name="EmpUserApiCertificateThumbprint" />
+      <Setting name="ConfigurationStorageConnectionString" />
       <Setting name="LoggingRedisConnectionString" />
       <Setting name="EnvironmentName" />
-      <Setting name="ConfigurationStorageConnectionString" />
-      <Setting name="EmpUserConnectionString"/>
+      <Setting name="InstrumentationKey" />
     </ConfigurationSettings>
     <Endpoints>
       <InputEndpoint name="SimpleEndpoint" protocol="http" port="80" />
