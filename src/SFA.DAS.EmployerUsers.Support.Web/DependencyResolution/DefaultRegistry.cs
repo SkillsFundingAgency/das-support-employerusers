@@ -28,9 +28,7 @@ namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
 
     [ExcludeFromCodeCoverage]
     public class DefaultRegistry : Registry {
-        private const string ServiceName = "SFA.DAS.Support.EmployerUsers";
-        private const string Version = "1.0";
-      
+       
         #region Constructors and Destructors
 
         public DefaultRegistry() {
@@ -40,28 +38,7 @@ namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
                     scan.WithDefaultConventions();
 					scan.With(new ControllerConvention());
                 });
-            WebConfiguration configuration = GetConfiguration();
-
-            For<IWebConfiguration>().Use(configuration);
-            For<IEmployerUsersApiConfiguration>().Use( configuration.EmployerUsersApi);
-        }
-
-        private WebConfiguration GetConfiguration()
-        {
-            var environment = CloudConfigurationManager.GetSetting("EnvironmentName") ?? 
-                              "LOCAL";
-            var storageConnectionString = CloudConfigurationManager.GetSetting("ConfigurationStorageConnectionString") ??
-                                          "UseDevelopmentStorage=true;";
-
-            var configurationRepository = new AzureTableStorageConfigurationRepository(storageConnectionString); ;
-
-            var configurationOptions = new ConfigurationOptions(ServiceName, environment, Version);
-
-            var configurationService = new ConfigurationService(configurationRepository, configurationOptions);
-
-            var webConfiguration = configurationService.Get<WebConfiguration>();    
-
-            return webConfiguration;
+            
         }
 
         #endregion
