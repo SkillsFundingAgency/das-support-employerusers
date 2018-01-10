@@ -21,6 +21,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.EmployerUsers.Suppo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.EmployerUsers.Support.Infrastructure.Tests", "SFA.DAS.EmployerUsers.Support.Infrastructure.Tests\SFA.DAS.EmployerUsers.Support.Infrastructure.Tests.csproj", "{893B0424-7E0F-49B2-BC72-997B91E7E206}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{731EE910-F4EF-45BD-9E45-6404651EA33E}"
+	ProjectSection(SolutionItems) = preProject
+		Build.fsx = Build.fsx
+		CustomTargets.fsx = CustomTargets.fsx
+		DefaultTargets.fsx = DefaultTargets.fsx
+		RunBuild.bat = RunBuild.bat
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.Support.Shared", "SFA.DAS.Support.Shared\SFA.DAS.Support.Shared.csproj", "{5FC1F599-1D96-450C-95C6-503F85444B12}"
 EndProject
 Global

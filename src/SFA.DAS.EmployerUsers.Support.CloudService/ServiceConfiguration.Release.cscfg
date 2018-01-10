@@ -4,16 +4,10 @@
     <Instances count="2" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="__StorageConnectionString__" />
-      <Setting name="EmpUserApiBaseUrl" value="__EmpUserApiBaseUrl__" />
-      <Setting name="EmpUserApiClientId" value="__EmpUserApiClientId__" />
-      <Setting name="EmpUserApiClientSecret" value="__EmpUserApiClientSecret__" />
-      <Setting name="EmpUserApiIdentifierUri" value="__EmpUserApiIdentifierUri__" />
-      <Setting name="EmpUserApiTenant" value="__EmpUserApiTenant__" />
-      <Setting name="EmpUserApiCertificateThumbprint" value="__EmployerUsersCertificateThumbprint__" />
+      <Setting name="ConfigurationStorageConnectionString" value="__ConfigurationStorageConnectionString__" />
       <Setting name="LoggingRedisConnectionString" value="__LoggingRedisConnectionString__" />
       <Setting name="EnvironmentName" value="__EnvironmentName__" />
-      <Setting name="ConfigurationStorageConnectionString" value="__ConfigurationStorageConnectionString__" />
-      <Setting name="EmpUserConnectionString" value="__EmpUserConnectionString__"/>
+      <Setting name="InstrumentationKey" value="__InstrumentationKey__" />
     </ConfigurationSettings>
     <Certificates>
       <Certificate name="WebSslCert" thumbprint="DFD096B2F4DFF8145754D2314CBA2BC0A40C588F" thumbprintAlgorithm="sha1" />

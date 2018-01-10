@@ -37,13 +37,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\IConfigurationSettings.cs" />
     <Compile Include="Domain\Model\EmployerUser.cs" />
     <Compile Include="Domain\Model\GlobalConstants.cs" />
     <Compile Include="Domain\Model\IUser.cs" />
     <Compile Include="Domain\Model\UserStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IProvideSettings.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
