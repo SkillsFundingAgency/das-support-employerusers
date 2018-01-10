@@ -8,6 +8,7 @@ using NUnit.Framework;
 using SFA.DAS.EmployerUsers.Support.Application.Handlers;
 using SFA.DAS.EmployerUsers.Support.Web.Controllers;
 using System.Web.Http.Results;
+using SFA.DAS.Support.Shared.SearchIndexModel;
 
 namespace SFA.DAS.EmployerUsers.Support.Web.Tests
 {

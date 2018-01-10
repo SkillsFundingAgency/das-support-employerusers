@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using SFA.DAS.Support.Shared;
 using SFA.DAS.EmployerUsers.Support.Application.Handlers;
+using SFA.DAS.Support.Shared.SearchIndexModel;
 
 namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
 {
