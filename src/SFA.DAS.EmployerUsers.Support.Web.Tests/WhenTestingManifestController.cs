@@ -7,6 +7,8 @@ using Moq;
 using NUnit.Framework;
 using SFA.DAS.EmployerUsers.Support.Application.Handlers;
 using SFA.DAS.EmployerUsers.Support.Web.Controllers;
+using System.Web.Http.Results;
+using SFA.DAS.Support.Shared.SearchIndexModel;
 
 namespace SFA.DAS.EmployerUsers.Support.Web.Tests
 {
@@ -32,12 +34,23 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Tests
         [Test]
         public async Task ItShouldReturnAllOfTheSearchItems()
         {
-            _employerUserHandler.Setup(x => x.FindSearchItems()).Returns(Task.FromResult(new List<SearchItem>
+            _employerUserHandler.Setup(x => x.FindSearchItems()).Returns(Task.FromResult(
+             new List<UserSearchModel>
             {
-                new SearchItem {Html = "", Keywords = new[] {"", ""}, SearchId = "123"}
+                new UserSearchModel
+                {
+                   Email = "user@email.com"
+                }
             }.AsEnumerable()));
+
+
             var actual = await _unit.Search();
-            CollectionAssert.IsNotEmpty(actual);
+
+            Assert.IsNotNull(actual);
+
+            var result = (JsonResult<IEnumerable<UserSearchModel>>)actual;
+
+            CollectionAssert.IsNotEmpty(result.Content);
         }
         
 
@@ -51,7 +64,11 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Tests
         [Test]
         public void ItShouldReturnTheSiteManifestContaintResources()
         {
-            var actual = _unit.Get();
+            var result = _unit.Get();
+
+            Assert.IsNotNull(result);
+            var actual = ((JsonResult<SiteManifest>)result).Content;
+
             Assert.IsNotEmpty(actual.Resources);
             Assert.IsNotNull(actual.Resources.FirstOrDefault(x => x.ResourceKey == "account/team"));
             Assert.IsNotNull(actual.Resources.FirstOrDefault(x => x.ResourceKey == "user/header"));
@@ -62,14 +79,18 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Tests
         [Test]
         public void ItShouldReturnTheSiteManifestHavingABaseUrl()
         {
-            var actual = _unit.Get();
+            var result = _unit.Get();
+            Assert.IsNotNull(result);
+            var actual = ((JsonResult<SiteManifest>)result).Content;
             Assert.IsNotNull(actual.BaseUrl);
         }
 
         [Test]
         public void ItShouldReturnTheSiteManifestHAvingAVersion()
         {
-            var actual = _unit.Get();
+            var result = _unit.Get();
+            Assert.IsNotNull(result);
+            var actual = ((JsonResult<SiteManifest>)result).Content;
             Assert.IsNotNull(actual.Version);
         }
     }

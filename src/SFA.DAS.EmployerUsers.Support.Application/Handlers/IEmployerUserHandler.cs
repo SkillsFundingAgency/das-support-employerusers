@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using SFA.DAS.Support.Shared;
+using SFA.DAS.Support.Shared.SearchIndexModel;
 
 namespace SFA.DAS.EmployerUsers.Support.Application.Handlers
 {
     public interface IEmployerUserHandler
     {
-        Task<IEnumerable<SearchItem>> FindSearchItems();
+        Task<IEnumerable<UserSearchModel>> FindSearchItems();
         
     }
 }

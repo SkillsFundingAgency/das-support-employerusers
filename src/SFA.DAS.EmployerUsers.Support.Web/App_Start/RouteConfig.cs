@@ -18,7 +18,7 @@ namespace SFA.DAS.EmployerUsers.Support.Web
             {
                 routes.MapMvcAttributeRoutes();
             }
-            catch (Exception e)
+            catch 
             {
                 // not valid scenario
             }

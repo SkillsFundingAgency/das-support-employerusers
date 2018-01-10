@@ -6,6 +6,7 @@ using NUnit.Framework;
 using SFA.DAS.EmployerUsers.Api.Types;
 using SFA.DAS.EmployerUsers.Support.Application.Handlers;
 using SFA.DAS.EmployerUsers.Support.Infrastructure;
+using SFA.DAS.EmployerUsers.Support.Core;
 
 namespace SFA.DAS.EmployerUsers.Support.Application.Tests
 {
@@ -27,7 +28,15 @@ namespace SFA.DAS.EmployerUsers.Support.Application.Tests
         public async Task ItShouldFindSearchItems()
         {
             _employerUserRepository.Setup(x => x.FindAllDetails()).Returns(
-                Task.FromResult(new List<UserSummaryViewModel> {new UserSummaryViewModel {Email = "Someone@tempuri.org"}}.AsEnumerable()));
+                Task.FromResult(
+                    new List<Core.Domain.Model.EmployerUser>
+                    {
+                        new Core.Domain.Model.EmployerUser
+                        {
+                            Email = "Someone@tempuri.org"
+                        }
+                    }.AsEnumerable()));
+
             var actual = await _unit.FindSearchItems();
             CollectionAssert.IsNotEmpty(actual);
         }

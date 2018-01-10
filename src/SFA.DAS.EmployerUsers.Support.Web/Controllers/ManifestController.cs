@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using SFA.DAS.Support.Shared;
 using SFA.DAS.EmployerUsers.Support.Application.Handlers;
+using SFA.DAS.Support.Shared.SearchIndexModel;
 
 namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
 {
@@ -19,28 +20,28 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
         }
 
 
-        [System.Web.Http.Route("")]
-        public SiteManifest Get()
+        [Route("")]
+        public IHttpActionResult Get()
         {
-            return new SiteManifest
+            return Json(new SiteManifest
             {
                 Version = GetVersion(),
                 Resources = GetResources(),
                 BaseUrl = Url.Content("~/")
-            };
+            });
         }
 
-        [System.Web.Http.HttpGet]
-        public async Task<IEnumerable<SearchItem>> Search()
+        [HttpGet]
+        public async Task<IHttpActionResult> Search()
         {
-            return await _handler.FindSearchItems();
-        } 
+            var model = await _handler.FindSearchItems();
+            return Json(model);
+        }
 
         private IEnumerable<SiteResource> GetResources()
         {
             return new List<SiteResource>()
             {
-
                 new SiteResource
                 {
                     ResourceKey = "account/team",
@@ -58,7 +59,8 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
                     ResourceKey = "user",
                     ResourceTitle = "Overview",
                     ResourceUrlFormat = "/user/index/{0}",
-                    SearchItemsUrl = "/api/manifest/search"
+                    SearchItemsUrl = "/api/manifest/search",
+                    SearchCategory = SearchCategory.User
                 }
             };
 

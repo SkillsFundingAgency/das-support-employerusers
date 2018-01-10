@@ -38,8 +38,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Model\EmployerUser.cs" />
+    <Compile Include="Domain\Model\GlobalConstants.cs" />
     <Compile Include="Domain\Model\IUser.cs" />
-    <Compile Include="Domain\Model\User.cs" />
     <Compile Include="Domain\Model\UserStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
