@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using SFA.DAS.EmployerUsers.Api.Client;
@@ -13,9 +14,7 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
         private readonly IEmployerUsersApiClient _client;
         private readonly ILog _logger;
         private int _usersPerPage = 1000;
-        public EmployerUserRepository(
-                ILog logger, 
-                IEmployerUsersApiClient client)
+        public EmployerUserRepository(ILog logger, IEmployerUsersApiClient client)
         {
             _logger = logger;
             _client = client;
@@ -27,14 +26,37 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
 
             var users = await _client.GetPageOfEmployerUsers(1, _usersPerPage);
 
-            results.AddRange(users.Data);
-
-            for (var i = 2; i <= users.TotalPages; i++)
+            if (users!= null)
             {
-                var page = await _client.GetPageOfEmployerUsers(i, _usersPerPage);
-                results.AddRange(page.Data);
+                _logger.Info($"Total User Pages : {users.TotalPages} ");
+
+                results.AddRange(users.Data);
+
+                for (var i = 2; i <= users.TotalPages; i++)
+                {
+
+                    try
+                    {
+                        var page = await _client.GetPageOfEmployerUsers(i, _usersPerPage);
+                        results.AddRange(page.Data);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.Error(ex,$"Error while loading page:{i}");
+
+                        throw;
+                    }
+
+
+                }
             }
-            return results?.Select(x => MapToEmployerUser(x));
+
+            if(results.Any(x=> x == null))
+            {
+                throw new Exception("Invalid record state");
+            }
+
+            return results.Select(x => MapToEmployerUser(x));
         }
 
         public async Task<EmployerUser> Get(string id)
@@ -42,7 +64,7 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
             _logger.Debug($"{nameof(IEmployerUsersApiClient)}.{nameof(_client.GetResource)}<{nameof(UserViewModel)}>(\"/api/users/{id}\");");
             var response = await _client.GetResource<UserViewModel>($"/api/users/{id}");
             if (response != null)
-            return MapToEmployerUser(response);
+                return MapToEmployerUser(response);
             else
             {
                 return null as EmployerUser;
@@ -58,7 +80,7 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
                 LastName = data.LastName,
                 Email = data.Email,
                 IsActive = data.IsActive,
-                FailedLoginAttempts  = data.FailedLoginAttempts,
+                FailedLoginAttempts = data.FailedLoginAttempts,
                 IsLocked = data.IsLocked
             };
 

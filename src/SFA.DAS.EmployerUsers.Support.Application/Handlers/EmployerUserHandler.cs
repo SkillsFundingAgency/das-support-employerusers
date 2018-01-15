@@ -26,7 +26,7 @@ namespace SFA.DAS.EmployerUsers.Support.Application.Handlers
             {
 
                 var models = await _userRepository.FindAllDetails();
-                return models.Select(m => Map(m)).ToList();
+                return models?.Select(m => Map(m)).ToList();
             }
             catch (Exception ex)
             {
