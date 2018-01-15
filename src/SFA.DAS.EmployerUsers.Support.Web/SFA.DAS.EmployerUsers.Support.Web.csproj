@@ -332,7 +332,7 @@
     </None>
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
-    <Content Include="Views\Error.cshtml" />
+    <Content Include="Views\Error\Error.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
