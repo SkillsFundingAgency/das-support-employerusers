@@ -301,7 +301,9 @@
     <Compile Include="App_Start\StructuremapWebApi.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Configuration\EmployerUsersApiConfiguration.cs" />
+    <Compile Include="Configuration\ISiteConnectorSettings.cs" />
     <Compile Include="Configuration\IWebConfiguration.cs" />
+    <Compile Include="Configuration\SiteConnectorSettings.cs" />
     <Compile Include="Configuration\WebConfiguration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ManifestController.cs" />
@@ -321,6 +323,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TokenValidationHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
