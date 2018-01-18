@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using SFA.DAS.EmployerUsers.Support.Web.Configuration;
 using SFA.DAS.NLog.Logger;
 
 namespace SFA.DAS.EmployerUsers.Support.Web
@@ -24,8 +25,10 @@ namespace SFA.DAS.EmployerUsers.Support.Web
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            GlobalConfiguration.Configuration.MessageHandlers.Add(new TokenValidationHandler());
-            
+            var siteConnectorSettings = ioc.GetService<ISiteConnectorSettings>();
+
+            GlobalConfiguration.Configuration.MessageHandlers.Add(new TokenValidationHandler(siteConnectorSettings, logger));
+            GlobalFilters.Filters.Add(new TokenValidationFilter(siteConnectorSettings, logger));
             logger.Info("Web role started");
 
         }

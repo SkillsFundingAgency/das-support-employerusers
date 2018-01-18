@@ -323,6 +323,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TokenValidationFilter.cs" />
     <Compile Include="TokenValidationHandler.cs" />
   </ItemGroup>
   <ItemGroup>
