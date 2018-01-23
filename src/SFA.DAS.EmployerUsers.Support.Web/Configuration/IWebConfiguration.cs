@@ -5,5 +5,6 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Configuration
     public interface IWebConfiguration
     {
         EmployerUsersApiConfiguration EmployerUsersApi { get; set; }
+        SiteConnectorSettings SiteValidator { get; set; }
     }
 }

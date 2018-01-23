@@ -44,7 +44,7 @@ namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
 
             For<IWebConfiguration>().Use(configuration);
             For<IEmployerUsersApiConfiguration>().Use( configuration.EmployerUsersApi);
-            For<ISiteConnectorSettings>().Use( configuration.SiteConnector);
+            For<ISiteConnectorSettings>().Use( configuration.SiteValidator);
 
         }
 

@@ -11,7 +11,7 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Configuration
         public EmployerUsersApiConfiguration EmployerUsersApi { get; set; }
 
         [JsonRequired] 
-        public SiteConnectorSettings SiteConnector { get; set; }
+        public SiteConnectorSettings SiteValidator { get; set; }
 
     }
 }
