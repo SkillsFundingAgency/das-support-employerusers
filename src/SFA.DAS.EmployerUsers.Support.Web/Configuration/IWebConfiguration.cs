@@ -1,10 +1,11 @@
 ﻿using SFA.DAS.EmployerUsers.Api.Client;
+using SFA.DAS.Support.Shared.SiteConnection;
 
 namespace SFA.DAS.EmployerUsers.Support.Web.Configuration
 {
     public interface IWebConfiguration
     {
         EmployerUsersApiConfiguration EmployerUsersApi { get; set; }
-        SiteConnectorSettings SiteValidator { get; set; }
+        SiteValidatorSettings SiteValidator { get; set; }
     }
 }
