@@ -18,10 +18,10 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure.DependencyResolution
             }
             catch (Exception e)
             {
-                System.Console.WriteLine(e);
+                Console.WriteLine(e);
                 throw;
             }
-            
+
             return properties;
         }
 

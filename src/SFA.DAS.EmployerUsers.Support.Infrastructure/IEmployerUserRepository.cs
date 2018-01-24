@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using SFA.DAS.Support.Shared;
-using SFA.DAS.EmployerUsers.Api.Types;
 using SFA.DAS.EmployerUsers.Support.Core.Domain.Model;
 
 namespace SFA.DAS.EmployerUsers.Support.Infrastructure

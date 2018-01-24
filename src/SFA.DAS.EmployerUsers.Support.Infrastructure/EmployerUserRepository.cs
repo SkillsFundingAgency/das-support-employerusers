@@ -83,7 +83,6 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
                 FailedLoginAttempts = data.FailedLoginAttempts,
                 IsLocked = data.IsLocked
             };
-
         }
 
         private EmployerUser MapToEmployerUser(UserSummaryViewModel data)
@@ -97,7 +96,6 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
                 IsActive = data.IsActive,
                 IsLocked = data.IsLocked
             };
-
         }
     }
 }

@@ -22,8 +22,8 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Logging
             }
         }
 
-        public string IpAddress { get; private set; }
+        public string IpAddress { get; }
 
-        public string Url { get; private set; }
+        public string Url { get; }
     }
 }

@@ -22,6 +22,7 @@ namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
     using SFA.DAS.Configuration.AzureTableStorage;
     using SFA.DAS.EmployerUsers.Api.Client;
     using SFA.DAS.EmployerUsers.Support.Web.Configuration;
+    using SFA.DAS.Support.Shared.SiteConnection;
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
     using System.Diagnostics.CodeAnalysis;
@@ -44,6 +45,8 @@ namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
 
             For<IWebConfiguration>().Use(configuration);
             For<IEmployerUsersApiConfiguration>().Use( configuration.EmployerUsersApi);
+            For<ISiteValidatorSettings>().Use( configuration.SiteValidator);
+
         }
 
         private WebConfiguration GetConfiguration()

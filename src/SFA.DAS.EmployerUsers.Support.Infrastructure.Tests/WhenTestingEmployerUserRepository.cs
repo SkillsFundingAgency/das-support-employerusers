@@ -12,45 +12,40 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure.Tests
     [TestFixture]
     public class WhenTestingEmployerUserRepository
     {
-
-        private IEmployerUserRepository _unit;
-        private Mock<ILog> _logger;
-        private Mock<IEmployerUsersApiClient> _employerUserApiClient;
-        private string _id = "123";
-
         [SetUp]
         public void Setup()
         {
             _logger = new Mock<ILog>();
             _employerUserApiClient = new Mock<IEmployerUsersApiClient>();
             _unit = new EmployerUserRepository(_logger.Object, _employerUserApiClient.Object);
-            
         }
+
+        private IEmployerUserRepository _unit;
+        private Mock<ILog> _logger;
+        private Mock<IEmployerUsersApiClient> _employerUserApiClient;
+        private readonly string _id = "123";
 
         [Test]
         public async Task ItShouldRetrieveAllOfTheAvailableUsers()
         {
-            var firstPage = new PagedApiResponseViewModel<UserSummaryViewModel>()
+            var firstPage = new PagedApiResponseViewModel<UserSummaryViewModel>
             {
                 TotalPages = 2,
                 Page = 1,
-                Data = new List<UserSummaryViewModel>() { new UserSummaryViewModel(){} }
+                Data = new List<UserSummaryViewModel> {new UserSummaryViewModel()}
             };
 
-           
-            _employerUserApiClient.Setup(x => 
-                x.GetPageOfEmployerUsers(It.IsAny<int>(), It.IsAny<int>()))
-                .Returns(Task.FromResult(firstPage));
 
+            _employerUserApiClient.Setup(x =>
+                    x.GetPageOfEmployerUsers(It.IsAny<int>(), It.IsAny<int>()))
+                .Returns(Task.FromResult(firstPage));
 
 
             var actual = await _unit.FindAllDetails();
 
-            _employerUserApiClient.Verify(x=>x.GetPageOfEmployerUsers(It.IsAny<int>(), It.IsAny<int>()), Times.Exactly(2));
+            _employerUserApiClient.Verify(x => x.GetPageOfEmployerUsers(It.IsAny<int>(), It.IsAny<int>()), Times.Exactly(2));
 
             Assert.AreEqual(2, actual.Count());
-
-
         }
 
         [Test]
@@ -62,11 +57,12 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure.Tests
             var actual = await _unit.Get(_id);
             Assert.IsNull(actual);
         }
+
         [Test]
         public async Task ItShouldReturnTheRequestedUser()
         {
             _employerUserApiClient.Setup(x => x.GetResource<UserViewModel>($"/api/users/{_id}"))
-                .Returns(Task.FromResult(new UserViewModel(){Id = _id}));
+                .Returns(Task.FromResult(new UserViewModel {Id = _id}));
 
             var actual = await _unit.Get(_id);
             Assert.IsNotNull(actual);
