@@ -3,7 +3,6 @@ using SFA.DAS.EmployerUsers.Api.Client;
 using SFA.DAS.EmployerUsers.Support.Application.Handlers;
 using SFA.DAS.EmployerUsers.Support.Infrastructure;
 using SFA.DAS.EmployerUsers.Support.Infrastructure.DependencyResolution;
-using SFA.DAS.EmployerUsers.Support.Infrastructure.Settings;
 using SFA.DAS.NLog.Logger;
 using StructureMap.Configuration.DSL;
 
@@ -17,12 +16,12 @@ namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
             For<ILoggingPropertyFactory>().Use<LoggingPropertyFactory>();
 
             For<ILog>().Use(x => new NLogLogger(
-                   x.ParentType,
-                   x.GetInstance<IRequestContext>(),
-                   x.GetInstance<ILoggingPropertyFactory>().GetProperties())).AlwaysUnique();
+                x.ParentType,
+                x.GetInstance<IRequestContext>(),
+                x.GetInstance<ILoggingPropertyFactory>().GetProperties())).AlwaysUnique();
 
 
-            For<IEmployerUsersApiClient>().Use("", (ctx) =>
+            For<IEmployerUsersApiClient>().Use("", ctx =>
             {
                 var empUserApiSettings = ctx.GetInstance<IEmployerUsersApiConfiguration>();
                 return new EmployerUsersApiClient(empUserApiSettings);
@@ -30,7 +29,6 @@ namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
 
             For<IEmployerUserRepository>().Use<EmployerUserRepository>();
             For<IEmployerUserHandler>().Use<EmployerUserHandler>();
-            
         }
     }
 }

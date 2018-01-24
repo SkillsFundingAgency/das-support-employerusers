@@ -1,19 +1,18 @@
 var sfa = sfa || {};
 
 sfa.settings = {
-    init: function () {
+    init: function() {
         document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
     }
 };
 
 sfa.tabs = {
-
     elems: {
         tabs: $('ul.js-tabs li a'),
         panels: $('.js-tab-pane')
     },
 
-    init: function () {
+    init: function() {
 
         if (this.elems.tabs) {
             this.setUpEvents(this.elems.tabs);
@@ -24,53 +23,55 @@ sfa.tabs = {
 
     },
 
-    hidePanels: function (panels) {
+    hidePanels: function(panels) {
         panels.hide();
     },
 
-    showPanel: function (panel) {
+    showPanel: function(panel) {
         panel.show();
     },
 
-    setUpEvents: function (tabs) {
+    setUpEvents: function(tabs) {
 
         var that = this;
 
-        tabs.on('click touchstart', function (e) {
+        tabs.on('click touchstart',
+            function(e) {
 
-            tabs.removeClass('selected');
-            $(this).addClass('selected');
+                tabs.removeClass('selected');
+                $(this).addClass('selected');
 
-            var target = $(this).attr('href');
+                const target = $(this).attr('href');
 
-            that.hidePanels(that.elems.panels);
-            that.showPanel($(target));
+                that.hidePanels(that.elems.panels);
+                that.showPanel($(target));
 
-            e.preventDefault();
-        });
+                e.preventDefault();
+            });
 
     }
 };
 
 sfa.focusSwitch = {
-    init: function () {
+    init: function() {
 
-        var fields = $('.focus-switch');
+        const fields = $('.focus-switch');
 
-        fields.on('keyup', function () {
+        fields.on('keyup',
+            function() {
 
-            var that = $(this),
-                length = that.val().length,
-                maxlength = that.attr('maxlength'),
-                nextid = that.data('next-id');
+                const that = $(this);
+                const length = that.val().length;
+                const maxlength = that.attr('maxlength');
+                const nextid = that.data('next-id');
 
-            console.log(nextid);
+                console.log(nextid);
 
-            if (length == maxlength) {
-                $('#' + nextid).focus();
-            }
+                if (length == maxlength) {
+                    $(`#${nextid}`).focus();
+                }
 
-        });
+            });
     }
 };
 

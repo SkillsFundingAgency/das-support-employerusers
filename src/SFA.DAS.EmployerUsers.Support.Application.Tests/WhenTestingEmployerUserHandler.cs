@@ -3,10 +3,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
-using SFA.DAS.EmployerUsers.Api.Types;
 using SFA.DAS.EmployerUsers.Support.Application.Handlers;
+using SFA.DAS.EmployerUsers.Support.Core.Domain.Model;
 using SFA.DAS.EmployerUsers.Support.Infrastructure;
-using SFA.DAS.EmployerUsers.Support.Core;
 
 namespace SFA.DAS.EmployerUsers.Support.Application.Tests
 {
@@ -29,9 +28,9 @@ namespace SFA.DAS.EmployerUsers.Support.Application.Tests
         {
             _employerUserRepository.Setup(x => x.FindAllDetails()).Returns(
                 Task.FromResult(
-                    new List<Core.Domain.Model.EmployerUser>
+                    new List<EmployerUser>
                     {
-                        new Core.Domain.Model.EmployerUser
+                        new EmployerUser
                         {
                             Email = "Someone@tempuri.org"
                         }

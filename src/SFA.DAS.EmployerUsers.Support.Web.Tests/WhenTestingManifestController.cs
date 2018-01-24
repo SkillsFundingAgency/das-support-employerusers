@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web.Mvc;
-using SFA.DAS.Support.Shared;
+using System.Web.Http.Results;
+using System.Web.Http.Routing;
 using Moq;
 using NUnit.Framework;
 using SFA.DAS.EmployerUsers.Support.Application.Handlers;
 using SFA.DAS.EmployerUsers.Support.Web.Controllers;
-using System.Web.Http.Results;
+using SFA.DAS.Support.Shared.Discovery;
 using SFA.DAS.Support.Shared.SearchIndexModel;
 
 namespace SFA.DAS.EmployerUsers.Support.Web.Tests
@@ -22,37 +22,37 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Tests
             _unit = new ManifestController(_employerUserHandler.Object);
 
 
-            _urlHelper = new Mock<System.Web.Http.Routing.UrlHelper>();
+            _urlHelper = new Mock<UrlHelper>();
             _unit.Url = _urlHelper.Object;
             _urlHelper.Setup(x => x.Content(It.IsAny<string>())).Returns(@"~\");
         }
 
         private ManifestController _unit;
         private Mock<IEmployerUserHandler> _employerUserHandler;
-        private Mock<System.Web.Http.Routing.UrlHelper> _urlHelper;
+        private Mock<UrlHelper> _urlHelper;
 
         [Test]
         public async Task ItShouldReturnAllOfTheSearchItems()
         {
             _employerUserHandler.Setup(x => x.FindSearchItems()).Returns(Task.FromResult(
-             new List<UserSearchModel>
-            {
-                new UserSearchModel
+                new List<UserSearchModel>
                 {
-                   Email = "user@email.com"
-                }
-            }.AsEnumerable()));
+                    new UserSearchModel
+                    {
+                        Email = "user@email.com"
+                    }
+                }.AsEnumerable()));
 
 
             var actual = await _unit.Search();
 
             Assert.IsNotNull(actual);
 
-            var result = (JsonResult<IEnumerable<UserSearchModel>>)actual;
+            var result = (JsonResult<IEnumerable<UserSearchModel>>) actual;
 
             CollectionAssert.IsNotEmpty(result.Content);
         }
-        
+
 
         [Test]
         public void ItShouldReturnTheSiteManifest()
@@ -67,13 +67,12 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Tests
             var result = _unit.Get();
 
             Assert.IsNotNull(result);
-            var actual = ((JsonResult<SiteManifest>)result).Content;
+            var actual = ((JsonResult<SiteManifest>) result).Content;
 
             Assert.IsNotEmpty(actual.Resources);
             Assert.IsNotNull(actual.Resources.FirstOrDefault(x => x.ResourceKey == "account/team"));
             Assert.IsNotNull(actual.Resources.FirstOrDefault(x => x.ResourceKey == "user/header"));
             Assert.IsNotNull(actual.Resources.FirstOrDefault(x => x.ResourceKey == "user"));
-
         }
 
         [Test]
@@ -81,7 +80,7 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Tests
         {
             var result = _unit.Get();
             Assert.IsNotNull(result);
-            var actual = ((JsonResult<SiteManifest>)result).Content;
+            var actual = ((JsonResult<SiteManifest>) result).Content;
             Assert.IsNotNull(actual.BaseUrl);
         }
 
@@ -90,7 +89,7 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Tests
         {
             var result = _unit.Get();
             Assert.IsNotNull(result);
-            var actual = ((JsonResult<SiteManifest>)result).Content;
+            var actual = ((JsonResult<SiteManifest>) result).Content;
             Assert.IsNotNull(actual.Version);
         }
     }

@@ -1,5 +1,4 @@
-﻿using SFA.DAS.EmployerUsers.Api.Client;
-using SFA.DAS.Support.Shared.SiteConnection;
+﻿using SFA.DAS.Support.Shared.SiteConnection;
 
 namespace SFA.DAS.EmployerUsers.Support.Web.Configuration
 {

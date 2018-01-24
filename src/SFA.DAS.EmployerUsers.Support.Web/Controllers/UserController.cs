@@ -16,33 +16,21 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
 
         public async Task<ActionResult> Header(string id)
         {
-            if (string.IsNullOrWhiteSpace(id))
-            {
-                throw new BadRequestException();
-            }
+            if (string.IsNullOrWhiteSpace(id)) throw new BadRequestException();
 
             var response = await _repository.Get(id);
 
-            if (response == null)
-            {
-                return HttpNotFound();
-            }
+            if (response == null) return HttpNotFound();
             return View("SubHeader", response);
         }
 
         public async Task<ActionResult> Index(string id)
         {
-            if (string.IsNullOrWhiteSpace(id))
-            {
-                throw new BadRequestException();
-            }
+            if (string.IsNullOrWhiteSpace(id)) throw new BadRequestException();
 
             var response = await _repository.Get(id);
 
-            if (response == null)
-            {
-                return HttpNotFound();
-            }
+            if (response == null) return HttpNotFound();
             return View(response);
         }
     }

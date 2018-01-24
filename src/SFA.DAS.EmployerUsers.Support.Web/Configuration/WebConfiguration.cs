@@ -8,8 +8,7 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Configuration
         [JsonRequired]
         public EmployerUsersApiConfiguration EmployerUsersApi { get; set; }
 
-        [JsonRequired] 
+        [JsonRequired]
         public SiteValidatorSettings SiteValidator { get; set; }
-
     }
 }

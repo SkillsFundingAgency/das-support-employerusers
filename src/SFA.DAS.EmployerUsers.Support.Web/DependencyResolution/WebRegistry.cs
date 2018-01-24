@@ -11,8 +11,7 @@ namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
     {
         public WebRegistry()
         {
-            For<SFA.DAS.NLog.Logger.IRequestContext>().Use(x => new RequestContext(new HttpContextWrapper(HttpContext.Current)));
-
+            For<IRequestContext>().Use(x => new RequestContext(new HttpContextWrapper(HttpContext.Current)));
         }
     }
 }

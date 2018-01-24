@@ -7,14 +7,19 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Configuration
     {
         [JsonRequired]
         public string ApiBaseUrl { get; set; }
+
         [JsonRequired]
         public string ClientId { get; set; }
+
         [JsonRequired]
         public string ClientSecret { get; set; }
+
         [JsonRequired]
         public string IdentifierUri { get; set; }
+
         [JsonRequired]
         public string Tenant { get; set; }
+
         [JsonRequired]
         public string ClientCertificateThumbprint { get; set; }
     }

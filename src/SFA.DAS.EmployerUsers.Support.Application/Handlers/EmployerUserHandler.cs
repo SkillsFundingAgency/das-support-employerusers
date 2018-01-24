@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SFA.DAS.EmployerUsers.Support.Infrastructure;
 using SFA.DAS.EmployerUsers.Support.Core.Domain.Model;
-using System;
+using SFA.DAS.EmployerUsers.Support.Infrastructure;
 using SFA.DAS.Support.Shared.SearchIndexModel;
 
 namespace SFA.DAS.EmployerUsers.Support.Application.Handlers
@@ -19,7 +19,6 @@ namespace SFA.DAS.EmployerUsers.Support.Application.Handlers
 
         public async Task<IEnumerable<UserSearchModel>> FindSearchItems()
         {
-
             var models = await _userRepository.FindAllDetails();
             return models.Select(m => Map(m)).ToList();
         }
@@ -29,13 +28,12 @@ namespace SFA.DAS.EmployerUsers.Support.Application.Handlers
             return new UserSearchModel
             {
                 Id = employerUser.Id,
-                Email =  string.IsNullOrEmpty(employerUser.Email) ? "NA" : employerUser.Email,
+                Email = string.IsNullOrEmpty(employerUser.Email) ? "NA" : employerUser.Email,
                 FirstName = employerUser.FirstName,
                 LastName = employerUser.LastName,
                 Status = Enum.GetName(typeof(UserStatus), employerUser.Status),
                 SearchType = SearchCategory.User
             };
         }
-      
     }
 }

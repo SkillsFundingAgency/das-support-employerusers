@@ -12,10 +12,11 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
     {
         private readonly IEmployerUsersApiClient _client;
         private readonly ILog _logger;
-        private int _usersPerPage = 1000;
+        private readonly int _usersPerPage = 1000;
+
         public EmployerUserRepository(
-                ILog logger, 
-                IEmployerUsersApiClient client)
+            ILog logger,
+            IEmployerUsersApiClient client)
         {
             _logger = logger;
             _client = client;
@@ -34,6 +35,7 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
                 var page = await _client.GetPageOfEmployerUsers(i, _usersPerPage);
                 results.AddRange(page.Data);
             }
+
             return results?.Select(x => MapToEmployerUser(x));
         }
 
@@ -42,11 +44,8 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
             _logger.Debug($"{nameof(IEmployerUsersApiClient)}.{nameof(_client.GetResource)}<{nameof(UserViewModel)}>(\"/api/users/{id}\");");
             var response = await _client.GetResource<UserViewModel>($"/api/users/{id}");
             if (response != null)
-            return MapToEmployerUser(response);
-            else
-            {
-                return null as EmployerUser;
-            }
+                return MapToEmployerUser(response);
+            return null;
         }
 
         private EmployerUser MapToEmployerUser(UserViewModel data)
@@ -58,10 +57,9 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
                 LastName = data.LastName,
                 Email = data.Email,
                 IsActive = data.IsActive,
-                FailedLoginAttempts  = data.FailedLoginAttempts,
+                FailedLoginAttempts = data.FailedLoginAttempts,
                 IsLocked = data.IsLocked
             };
-
         }
 
         private EmployerUser MapToEmployerUser(UserSummaryViewModel data)
@@ -75,7 +73,6 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
                 IsActive = data.IsActive,
                 IsLocked = data.IsLocked
             };
-
         }
     }
 }
