@@ -6,6 +6,7 @@ using NUnit.Framework;
 using SFA.DAS.EmployerUsers.Support.Application.Handlers;
 using SFA.DAS.EmployerUsers.Support.Core.Domain.Model;
 using SFA.DAS.EmployerUsers.Support.Infrastructure;
+using SFA.DAS.NLog.Logger;
 
 namespace SFA.DAS.EmployerUsers.Support.Application.Tests
 {
@@ -15,10 +16,12 @@ namespace SFA.DAS.EmployerUsers.Support.Application.Tests
         [SetUp]
         public void Setup()
         {
+            _mockLogger = new Mock<ILog>();
             _employerUserRepository = new Mock<IEmployerUserRepository>();
-            _unit = new EmployerUserHandler(_employerUserRepository.Object);
+            _unit = new EmployerUserHandler(_employerUserRepository.Object, _mockLogger.Object);
         }
 
+        private Mock<ILog> _mockLogger;
         private IEmployerUserHandler _unit;
         private Mock<IEmployerUserRepository> _employerUserRepository;
 
