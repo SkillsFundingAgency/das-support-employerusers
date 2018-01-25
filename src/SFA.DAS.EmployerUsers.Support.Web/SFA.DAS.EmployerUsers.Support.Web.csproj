@@ -357,10 +357,6 @@
       <Project>{4cc506ae-f6bc-46b2-910a-d6bf29da8d90}</Project>
       <Name>SFA.DAS.EmployerUsers.Support.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SFA.DAS.Support.Shared\SFA.DAS.Support.Shared.csproj">
-      <Project>{5fc1f599-1d96-450c-95c6-503f85444b12}</Project>
-      <Name>SFA.DAS.Support.Shared</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
