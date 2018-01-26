@@ -126,10 +126,6 @@
       <Project>{9CF7EBA9-983F-450D-8F90-D5CA64AF21B1}</Project>
       <Name>SFA.DAS.EmployerUsers.Support.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SFA.DAS.Support.Shared\SFA.DAS.Support.Shared.csproj">
-      <Project>{5fc1f599-1d96-450c-95c6-503f85444b12}</Project>
-      <Name>SFA.DAS.Support.Shared</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
