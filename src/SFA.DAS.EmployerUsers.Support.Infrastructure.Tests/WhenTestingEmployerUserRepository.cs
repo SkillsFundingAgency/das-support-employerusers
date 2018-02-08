@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
+using SFA.DAS.EAS.Account.Api.Client;
 using SFA.DAS.EmployerUsers.Api.Client;
 using SFA.DAS.EmployerUsers.Api.Types;
 using SFA.DAS.NLog.Logger;
@@ -17,12 +18,14 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure.Tests
         {
             _logger = new Mock<ILog>();
             _employerUserApiClient = new Mock<IEmployerUsersApiClient>();
-            _unit = new EmployerUserRepository(_logger.Object, _employerUserApiClient.Object);
+            _employerAccountApiClient = new Mock<IAccountApiClient>();
+            _unit = new EmployerUserRepository(_logger.Object, _employerUserApiClient.Object, _employerAccountApiClient.Object);
         }
 
         private IEmployerUserRepository _unit;
         private Mock<ILog> _logger;
         private Mock<IEmployerUsersApiClient> _employerUserApiClient;
+        private Mock<IAccountApiClient> _employerAccountApiClient;
         private readonly string _id = "123";
 
         [Test]

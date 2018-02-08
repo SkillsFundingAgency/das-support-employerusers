@@ -1,6 +1,6 @@
 ﻿@model SFA.DAS.EmployerUsers.Support.Core.Domain.Model.EmployerUser
 
-<h2 class="heading-large">Overview</h2>
+<h2 class="heading-large">Employer User</h2>
 
 @if (Model != null)
 {
@@ -12,8 +12,46 @@
         <dt class="last-dt">Status:</dt>
         <dd class="last-dd">@Model.Status</dd>
     </dl>
+    <hr />
+    <div>Associated Employer Accounts</div>
+
+    if (Model.Accounts.Any())
+    {
+        <table>
+            <thead>
+                <tr>
+                    <td>DAS Account Name</td>
+                    <td>Date Registered</td>
+                    <td>Owner Email</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Accounts)
+                {
+                    <tr>
+                        <td class="">item.DasAccountName</td>
+                        <td class="">item.DateRegistered</td>
+                        <td class="">item.OwnerEmail</td>
+                        @if (Model.AccountsUri != null)
+                        {
+                            <td class=""><a href="@string.Format(Model.AccountsUri, @item.HashedAccountId)">View</a></td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div>No Accounts found for this user!</div>
+    }
 }
 else
 {
-    <p>User not found</p>
+    <div>User not found</div>
 }

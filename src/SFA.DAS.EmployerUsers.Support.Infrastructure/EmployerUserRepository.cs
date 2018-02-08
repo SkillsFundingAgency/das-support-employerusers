@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using SFA.DAS.EAS.Account.Api.Client;
+using SFA.DAS.EAS.Account.Api.Types;
 using SFA.DAS.EmployerUsers.Api.Client;
 using SFA.DAS.EmployerUsers.Api.Types;
 using SFA.DAS.EmployerUsers.Support.Core.Domain.Model;
@@ -11,20 +14,23 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
 {
     public sealed class EmployerUserRepository : IEmployerUserRepository
     {
-        private readonly IEmployerUsersApiClient _client;
+        private readonly IEmployerUsersApiClient _employerUsersApiClient;
         private readonly ILog _logger;
         private int _usersPerPage = 1000;
-        public EmployerUserRepository(ILog logger, IEmployerUsersApiClient client)
+        private readonly IAccountApiClient _employerAccountsApiClient;
+
+        public EmployerUserRepository(ILog logger, IEmployerUsersApiClient employerUsersApiClient, IAccountApiClient employerAccountsApiClient)
         {
             _logger = logger;
-            _client = client;
+            _employerUsersApiClient = employerUsersApiClient;
+            _employerAccountsApiClient = employerAccountsApiClient;
         }
 
         public async Task<IEnumerable<EmployerUser>> FindAllDetails()
         {
             var results = new List<UserSummaryViewModel>();
 
-            var users = await _client.GetPageOfEmployerUsers(1, _usersPerPage);
+            var users = await _employerUsersApiClient.GetPageOfEmployerUsers(1, _usersPerPage);
 
             if (users!= null)
             {
@@ -37,7 +43,7 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
 
                     try
                     {
-                        var page = await _client.GetPageOfEmployerUsers(i, _usersPerPage);
+                        var page = await _employerUsersApiClient.GetPageOfEmployerUsers(i, _usersPerPage);
                         results.AddRange(page.Data);
                     }
                     catch (Exception ex)
@@ -61,14 +67,23 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
 
         public async Task<EmployerUser> Get(string id)
         {
-            _logger.Debug($"{nameof(IEmployerUsersApiClient)}.{nameof(_client.GetResource)}<{nameof(UserViewModel)}>(\"/api/users/{id}\");");
-            var response = await _client.GetResource<UserViewModel>($"/api/users/{id}");
+            _logger.Debug($"{nameof(IEmployerUsersApiClient)}.{nameof(_employerUsersApiClient.GetResource)}<{nameof(UserViewModel)}>(\"/api/users/{id}\");");
+            var response = await _employerUsersApiClient.GetResource<UserViewModel>($"/api/users/{id}");
+
             if (response != null)
                 return MapToEmployerUser(response);
             else
             {
                 return null as EmployerUser;
             }
+        }
+
+        public async Task<ICollection<AccountDetailViewModel>> GetAccounts(string id)
+        {
+            _logger.Debug($"{nameof(IAccountApiClient)}.{nameof(_employerAccountsApiClient.GetUserAccounts)}(\"{id}\");");
+            var response = await _employerAccountsApiClient.GetUserAccounts(id);
+
+            return response ?? new Collection<AccountDetailViewModel>();
         }
 
         private EmployerUser MapToEmployerUser(UserViewModel data)
