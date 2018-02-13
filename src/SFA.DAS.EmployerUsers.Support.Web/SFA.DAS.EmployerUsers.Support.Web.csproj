@@ -330,7 +330,6 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="Content\src\styles\_layout.scss" />
-    <Content Include="Views\Account\Team.cshtml" />
     <Content Include="Views\Shared\_Parent.cshtml" />
     <Content Include="Views\User\SubHeader.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
@@ -347,10 +346,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Search\" />
-    <Folder Include="Views\Status\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\SFA.DAS.EmployerUsers.Support.Application\SFA.DAS.EmployerUsers.Support.Application.csproj">

@@ -38,7 +38,7 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
             }
 
             response.Accounts = await _repository.GetAccounts(id);
-            response.AccountsUri = _serviceConfiguration.GetResource(SupportServiceResourceKey.EmployerAccount)?.ResourceUrlFormat;
+            response.AccountsUri = $"/resource/index/{{0}}?key={SupportServiceResourceKey.EmployerAccount}";
 
             return View(response);
         }
