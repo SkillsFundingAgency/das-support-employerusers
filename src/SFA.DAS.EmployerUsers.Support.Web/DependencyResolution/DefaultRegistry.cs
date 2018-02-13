@@ -20,8 +20,10 @@ namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
     using Microsoft.Azure;
     using SFA.DAS.Configuration;
     using SFA.DAS.Configuration.AzureTableStorage;
+    using SFA.DAS.EAS.Account.Api.Client;
     using SFA.DAS.EmployerUsers.Api.Client;
     using SFA.DAS.EmployerUsers.Support.Web.Configuration;
+    using SFA.DAS.Support.Shared.Discovery;
     using SFA.DAS.Support.Shared.SiteConnection;
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
@@ -41,10 +43,20 @@ namespace SFA.DAS.EmployerUsers.Support.Web.DependencyResolution
                     scan.WithDefaultConventions();
 					scan.With(new ControllerConvention());
                 });
+
+            For<IServiceConfiguration>().Singleton().Use(new ServiceConfiguration
+                {
+                    new EmployerAccountSiteManifest(),
+                    new EmployerUserSiteManifest()
+                }
+            );
+
+
             WebConfiguration configuration = GetConfiguration();
 
             For<IWebConfiguration>().Use(configuration);
             For<IEmployerUsersApiConfiguration>().Use( configuration.EmployerUsersApi);
+            For<IAccountApiConfiguration>().Use(configuration.AccountApi);
             For<ISiteValidatorSettings>().Use( configuration.SiteValidator);
 
         }

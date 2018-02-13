@@ -110,6 +110,9 @@
     <Reference Include="SFA.DAS.Configuration.AzureTableStorage, Version=1.0.0.43116, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SFA.DAS.Configuration.AzureTableStorage.1.0.0.43116\lib\net45\SFA.DAS.Configuration.AzureTableStorage.dll</HintPath>
     </Reference>
+    <Reference Include="SFA.DAS.EAS.Account.Api.Client, Version=1.0.0.51148, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SFA.DAS.Account.Api.Client.1.0.0.51148\lib\net45\SFA.DAS.EAS.Account.Api.Client.dll</HintPath>
+    </Reference>
     <Reference Include="SFA.DAS.EAS.Account.Api.Types, Version=1.0.0.36226, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SFA.DAS.Account.Api.Types.1.0.0.36226\lib\net45\SFA.DAS.EAS.Account.Api.Types.dll</HintPath>
     </Reference>
@@ -125,8 +128,8 @@
     <Reference Include="SFA.DAS.NLog.Targets.Redis, Version=1.0.0.43242, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SFA.DAS.NLog.Targets.Redis.1.0.0.43242\lib\net45\SFA.DAS.NLog.Targets.Redis.dll</HintPath>
     </Reference>
-    <Reference Include="SFA.DAS.Support.Shared, Version=1.0.0.53769, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SFA.DAS.Support.Shared.1.0.0.53769\lib\net462\SFA.DAS.Support.Shared.dll</HintPath>
+    <Reference Include="SFA.DAS.Support.Shared, Version=1.0.0.57599, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SFA.DAS.Support.Shared.1.0.0.57599\lib\net462\SFA.DAS.Support.Shared.dll</HintPath>
     </Reference>
     <Reference Include="SFA.DAS.Web.Policy, Version=1.1.0.44309, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SFA.DAS.Web.Policy.1.1.0.44309\lib\net45\SFA.DAS.Web.Policy.dll</HintPath>
@@ -300,10 +303,10 @@
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="App_Start\StructuremapWebApi.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Configuration\AccountApiConfiguration.cs" />
     <Compile Include="Configuration\EmployerUsersApiConfiguration.cs" />
     <Compile Include="Configuration\IWebConfiguration.cs" />
     <Compile Include="Configuration\WebConfiguration.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -327,7 +330,6 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="Content\src\styles\_layout.scss" />
-    <Content Include="Views\Account\Team.cshtml" />
     <Content Include="Views\Shared\_Parent.cshtml" />
     <Content Include="Views\User\SubHeader.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
@@ -344,12 +346,8 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Status\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Search\" />
-  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\SFA.DAS.EmployerUsers.Support.Application\SFA.DAS.EmployerUsers.Support.Application.csproj">
       <Project>{CE85AAE2-BD07-45F0-A642-4FA376ED9BF1}</Project>

@@ -30,6 +30,14 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Tests.Configuration
                     Audience = "--- configuration value goes here ---",
                     Scope = "--- configuration value goes here ---",
                     Tenant = "--- configuration value goes here ---"
+                },
+                AccountApi = new AccountApiConfiguration()
+                {
+                    Tenant = "--- configuration value goes here ---",
+                    ApiBaseUrl = "--- configuration value goes here ---",
+                    ClientId = "00000000-0000-0000-0000-000000000000",
+                    ClientSecret = "--- configuration value goes here ---",
+                    IdentifierUri = "--- configuration value goes here ---"
                 }
             };
         }
