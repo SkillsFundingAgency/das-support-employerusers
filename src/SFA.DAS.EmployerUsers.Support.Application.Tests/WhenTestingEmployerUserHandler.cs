@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
+using SFA.DAS.EAS.Account.Api.Types;
 using SFA.DAS.EmployerUsers.Support.Application.Handlers;
 using SFA.DAS.EmployerUsers.Support.Core.Domain.Model;
 using SFA.DAS.EmployerUsers.Support.Infrastructure;
@@ -35,7 +37,7 @@ namespace SFA.DAS.EmployerUsers.Support.Application.Tests
                     {
                         new EmployerUser
                         {
-                            Email = "Someone@tempuri.org"
+                            Email = "Someone@tempuri.org", Accounts = new Collection<AccountDetailViewModel>(){}, AccountsUri = "~/account/{0}"
                         }
                     }.AsEnumerable()));
 
