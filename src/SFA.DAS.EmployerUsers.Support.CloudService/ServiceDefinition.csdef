@@ -15,6 +15,7 @@
       <Setting name="LoggingRedisConnectionString" />
       <Setting name="EnvironmentName" />
       <Setting name="InstrumentationKey" />
+      <Setting name="EmpUserApiCertificateThumbprint">
     </ConfigurationSettings>
     <Endpoints>
       <InputEndpoint name="SimpleEndpoint" protocol="http" port="80" />
