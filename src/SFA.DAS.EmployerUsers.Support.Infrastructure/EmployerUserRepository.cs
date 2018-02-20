@@ -30,60 +30,87 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
         {
             var results = new List<UserSummaryViewModel>();
 
-            var users = await _employerUsersApiClient.GetPageOfEmployerUsers(1, _usersPerPage);
-
-            if (users!= null)
+            try
             {
-                _logger.Info($"Total User Pages : {users.TotalPages} ");
+                var users = await _employerUsersApiClient.GetPageOfEmployerUsers(1, _usersPerPage);
 
-                results.AddRange(users.Data);
-
-                for (var i = 2; i <= users.TotalPages; i++)
+                if (users != null)
                 {
+                    _logger.Info($"Total User Pages : {users.TotalPages} ");
 
-                    try
+                    results.AddRange(users.Data);
+
+                    for (var i = 2; i <= users.TotalPages; i++)
                     {
-                        var page = await _employerUsersApiClient.GetPageOfEmployerUsers(i, _usersPerPage);
-                        results.AddRange(page.Data);
+
+                        try
+                        {
+                            var page = await _employerUsersApiClient.GetPageOfEmployerUsers(i, _usersPerPage);
+                            results.AddRange(page.Data);
+                        }
+                        catch (Exception ex)
+                        {
+                            _logger.Error(ex, $"Error while loading page:{i}");
+
+                            throw;
+                        }
+
+
                     }
-                    catch (Exception ex)
-                    {
-                        _logger.Error(ex,$"Error while loading page:{i}");
-
-                        throw;
-                    }
-
-
                 }
-            }
 
-            if(results.Any(x=> x == null))
+                if (results.Any(x => x == null))
+                {
+                    throw new Exception("Invalid record state");
+                }
+
+                return results.Select(x => MapToEmployerUser(x));
+            }
+            catch (Exception ex)
             {
-                throw new Exception("Invalid record state");
+                _logger.Error(ex, $"Error while trying to load First users for page 1");
+                throw;
             }
-
-            return results.Select(x => MapToEmployerUser(x));
         }
 
         public async Task<EmployerUser> Get(string id)
         {
-            _logger.Debug($"{nameof(IEmployerUsersApiClient)}.{nameof(_employerUsersApiClient.GetResource)}<{nameof(UserViewModel)}>(\"/api/users/{id}\");");
-            var response = await _employerUsersApiClient.GetResource<UserViewModel>($"/api/users/{id}");
 
-            if (response != null)
-                return MapToEmployerUser(response);
-            else
+            try
             {
-                return null as EmployerUser;
+                _logger.Debug($"{nameof(IEmployerUsersApiClient)}.{nameof(_employerUsersApiClient.GetResource)}<{nameof(UserViewModel)}>(\"/api/users/{id}\");");
+                var response = await _employerUsersApiClient.GetResource<UserViewModel>($"/api/users/{id}");
+
+                if (response != null)
+                    return MapToEmployerUser(response);
+                else
+                {
+                    return null as EmployerUser;
+                }
             }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, $"Error while trying to load user id {id}");
+                throw;
+            }
+
         }
 
         public async Task<ICollection<AccountDetailViewModel>> GetAccounts(string id)
         {
-            _logger.Debug($"{nameof(IAccountApiClient)}.{nameof(_employerAccountsApiClient.GetUserAccounts)}(\"{id}\");");
-            var response = await _employerAccountsApiClient.GetUserAccounts(id);
+            try
+            {
+                _logger.Debug($"{nameof(IAccountApiClient)}.{nameof(_employerAccountsApiClient.GetUserAccounts)}(\"{id}\");");
+                var response = await _employerAccountsApiClient.GetUserAccounts(id);
+                return response ?? new Collection<AccountDetailViewModel>();
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, $"Error while trying to get User Accounts for user id {id}");
 
-            return response ?? new Collection<AccountDetailViewModel>();
+                throw;
+            }
+
         }
 
         private EmployerUser MapToEmployerUser(UserViewModel data)
