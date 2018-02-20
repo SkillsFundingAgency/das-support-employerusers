@@ -28,6 +28,7 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
 
         public async Task<ActionResult> Index(string id)
         {
+
             if (string.IsNullOrWhiteSpace(id)) throw new BadRequestException();
 
             var response = await _repository.Get(id);
