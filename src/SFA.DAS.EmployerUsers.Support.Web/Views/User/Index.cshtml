@@ -29,7 +29,7 @@
                 @foreach (var item in Model.Accounts)
                 {
                     <tr>
-                        <td data-label="Account Name" id="DasAccountName">@item.DasAccountName</td>
+                        <td data-label="Account Name" id="AccountName">@item.DasAccountName</td>
                         @if (Model.AccountsUri != null)
                         {
                             <td class=""><a href="@string.Format(Model.AccountsUri, item.HashedAccountId)">view</a></td>
