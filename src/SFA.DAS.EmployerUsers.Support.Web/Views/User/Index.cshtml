@@ -1,7 +1,7 @@
 ﻿@using System.Globalization
 @model SFA.DAS.EmployerUsers.Support.Core.Domain.Model.EmployerUser
 
-<h1 class="heading-large">Employer User</h1>
+<h1 class="heading-large">User overview</h1>
 
 @if (Model != null)
 {
@@ -14,35 +14,29 @@
         <dd class="last-dd">@Model.Status</dd>
     </dl>
     <hr />
-    <h2 class="heading-medium">Associated Employer Accounts</h2>
+    <h2 class="heading-medium">@Model.FirstName @Model.LastName can access</h2>
 
     if (Model.Accounts.Any())
     {
         <table class="responsive">
             <thead>
                 <tr>
-                    <td scope="col" class="">DAS Account Name</td>
-                    <td scope="col" class="">Date Registered</td>
-                    <td scope="col" class="">Owner Email</td>
-                    <td scope="col" class="">Action</td>
+                    <td scope="col" class="">Account name</td>
+                    <td scope="col" class="">&nbsp;</td>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model.Accounts)
                 {
-                    var registered = item.DateRegistered == DateTime.MinValue ? "N/a" : item.DateRegistered.ToString(CultureInfo.InvariantCulture);
-                    var email = string.IsNullOrWhiteSpace(item.OwnerEmail) ? "N/a" : item.OwnerEmail;
                     <tr>
-                        <td data-label="DAS Account Name" id="DasAccountName">@item.DasAccountName</td>
-                        <td data-label="Date Registered" id="DateRegistered">@registered</td>
-                        <td data-label="Owner Email" id="OwnerEmail">@email</td>
+                        <td data-label="Account Name" id="AccountName">@item.DasAccountName</td>
                         @if (Model.AccountsUri != null)
                         {
-                            <td class=""><a href="@string.Format(Model.AccountsUri, item.HashedAccountId)">View</a></td>
+                            <td class=""><a href="@string.Format(Model.AccountsUri, item.HashedAccountId)">view</a></td>
                         }
                         else
                         {
-                            <td></td>
+                            <td>&nbsp;</td>
                         }
                     </tr>
                 }
@@ -51,7 +45,7 @@
     }
     else
     {
-        <div>No Accounts found for this user!</div>
+        <div>No employer accounts</div>
     }
 }
 else
