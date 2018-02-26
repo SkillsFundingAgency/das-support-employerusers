@@ -39,22 +39,23 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure.Tests
             };
 
 
-            _employerUserApiClient.Setup(x =>
-                    x.GetPageOfEmployerUsers(It.IsAny<int>(), It.IsAny<int>()))
+            _employerUserApiClient
+                .Setup(x =>x.GetPageOfEmployerUsers(1, 50))
                 .Returns(Task.FromResult(firstPage));
 
+            var actual = await _unit.FindAllDetails(50,1);
 
-            var actual = await _unit.FindAllDetails();
+            _employerUserApiClient
+                .Verify(x => x.GetPageOfEmployerUsers(1, 50), Times.Once);
 
-            _employerUserApiClient.Verify(x => x.GetPageOfEmployerUsers(It.IsAny<int>(), It.IsAny<int>()), Times.Exactly(2));
-
-            Assert.AreEqual(2, actual.Count());
+            Assert.AreEqual(1, actual.Count());
         }
 
         [Test]
         public async Task ItShouldReturnANullUserifTheRequestedUserDoesNotExist()
         {
-            _employerUserApiClient.Setup(x => x.GetResource<UserViewModel>($"/api/users/{_id}"))
+            _employerUserApiClient
+                .Setup(x => x.GetResource<UserViewModel>($"/api/users/{_id}"))
                 .Returns(Task.FromResult(null as UserViewModel));
 
             var actual = await _unit.Get(_id);
@@ -64,7 +65,8 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure.Tests
         [Test]
         public async Task ItShouldReturnTheRequestedUser()
         {
-            _employerUserApiClient.Setup(x => x.GetResource<UserViewModel>($"/api/users/{_id}"))
+            _employerUserApiClient
+                .Setup(x => x.GetResource<UserViewModel>($"/api/users/{_id}"))
                 .Returns(Task.FromResult(new UserViewModel {Id = _id}));
 
             var actual = await _unit.Get(_id);

@@ -31,7 +31,7 @@ namespace SFA.DAS.EmployerUsers.Support.Application.Tests
         [Test]
         public async Task ItShouldFindSearchItems()
         {
-            _employerUserRepository.Setup(x => x.FindAllDetails()).Returns(
+            _employerUserRepository.Setup(x => x.FindAllDetails(50,1)).Returns(
                 Task.FromResult(
                     new List<EmployerUser>
                     {
@@ -41,7 +41,7 @@ namespace SFA.DAS.EmployerUsers.Support.Application.Tests
                         }
                     }.AsEnumerable()));
 
-            var actual = await _unit.FindSearchItems();
+            var actual = await _unit.FindSearchItems(50, 1);
             CollectionAssert.IsNotEmpty(actual);
         }
     }

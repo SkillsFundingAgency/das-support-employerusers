@@ -14,6 +14,8 @@ namespace SFA.DAS.EmployerUsers.Support.Web
                 "DefaultApi",
                 "api/{controller}/{id}",
                 new {id = RouteParameter.Optional});
+
+            config.EnsureInitialized();
         }
     }
 }

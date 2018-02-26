@@ -14,12 +14,20 @@ namespace SFA.DAS.EmployerUsers.Support.Web.Controllers
             _handler = handler;
         }
 
+        [HttpGet]
+        [Route("users/{pagesize}/{pagenumber}")]
+        public async Task<IHttpActionResult> Users(int pageSize, int pageNumber)
+        {
+            var model = await _handler.FindSearchItems(pageSize,pageNumber);
+            return Json(model);
+        }
 
         [HttpGet]
-        public async Task<IHttpActionResult> Users()
+        [Route("users/totalcount/{pageSize}")]
+        public async Task<IHttpActionResult> UsersTotalCount(int pageSize)
         {
-            var model = await _handler.FindSearchItems();
-            return Json(model);
+            var users = await _handler.TotalUserRecords(pageSize);
+            return Json(users);
         }
 
     }

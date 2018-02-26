@@ -20,12 +20,12 @@ namespace SFA.DAS.EmployerUsers.Support.Application.Handlers
             _log = log;
         }
 
-        public async Task<IEnumerable<UserSearchModel>> FindSearchItems()
+        public async Task<IEnumerable<UserSearchModel>> FindSearchItems(int pagesize, int pageNumber)
         {
             try
             {
 
-                var models = await _userRepository.FindAllDetails();
+                var models = await _userRepository.FindAllDetails( pagesize,  pageNumber);
                 return models?.Select(m => Map(m)).ToList();
             }
             catch (Exception ex)
@@ -35,6 +35,11 @@ namespace SFA.DAS.EmployerUsers.Support.Application.Handlers
                 throw;
             }
 
+        }
+
+        public async Task<int> TotalUserRecords(int pagesize)
+        {
+            return await _userRepository.TotalUserRecords(pagesize);
         }
 
         public UserSearchModel Map(EmployerUser employerUser)

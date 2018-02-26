@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using SFA.DAS.EAS.Account.Api.Client;
 using SFA.DAS.EAS.Account.Api.Types;
@@ -26,52 +27,59 @@ namespace SFA.DAS.EmployerUsers.Support.Infrastructure
             _employerAccountsApiClient = employerAccountsApiClient;
         }
 
-        public async Task<IEnumerable<EmployerUser>> FindAllDetails()
+        public async Task<IEnumerable<EmployerUser>> FindAllDetails(int pagesize, int pageNumber)
         {
             var results = new List<UserSummaryViewModel>();
 
             try
             {
-                var users = await _employerUsersApiClient.GetPageOfEmployerUsers(1, _usersPerPage);
-
-                if (users != null)
+                var users = await _employerUsersApiClient.GetPageOfEmployerUsers(pageNumber, pagesize);
+                if (users?.Data?.Count > 0)
                 {
-                    _logger.Info($"Total User Pages : {users.TotalPages} ");
-
                     results.AddRange(users.Data);
-
-                    for (var i = 2; i <= users.TotalPages; i++)
-                    {
-
-                        try
-                        {
-                            var page = await _employerUsersApiClient.GetPageOfEmployerUsers(i, _usersPerPage);
-                            results.AddRange(page.Data);
-                        }
-                        catch (Exception ex)
-                        {
-                            _logger.Error(ex, $"Error while loading page:{i}");
-
-                            throw;
-                        }
-
-
-                    }
-                }
-
-                if (results.Any(x => x == null))
-                {
-                    throw new Exception("Invalid record state");
                 }
 
                 return results.Select(x => MapToEmployerUser(x));
             }
+            catch (HttpRequestException e)
+            {
+                _logger.Warn($"The Employer User API Http request threw an exception while fetching Page {pageNumber} - Exception :\r\n{e}");
+                throw;
+            }
+            catch (Exception e)
+            {
+                _logger.Error(e, $"A general exception has been thrown while requesting employer users details");
+                throw;
+            }
+
+        }
+
+
+        public async Task<int> TotalUserRecords(int pagesize)
+        {
+            try
+            {
+                var userFirstPageModel = await _employerUsersApiClient.GetPageOfEmployerUsers(1, pagesize);
+                if (userFirstPageModel == null)
+                {
+                    return 0;
+                }
+
+                return (userFirstPageModel.TotalPages * pagesize);
+
+            }
+            catch (HttpRequestException e)
+            {
+                _logger.Warn($"The Employer User API Http request threw an exception while fetching  Total User Records- Exception :\r\n{e}");
+                throw;
+            }
             catch (Exception ex)
             {
-                _logger.Error(ex, $"Error while trying to load First users for page 1");
+                _logger.Error(ex, "Exception while fetching all user record count");
                 throw;
             }
         }
+
 
         public async Task<EmployerUser> Get(string id)
         {
