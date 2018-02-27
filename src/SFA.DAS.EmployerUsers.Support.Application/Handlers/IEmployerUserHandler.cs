@@ -6,6 +6,9 @@ namespace SFA.DAS.EmployerUsers.Support.Application.Handlers
 {
     public interface IEmployerUserHandler
     {
-        Task<IEnumerable<UserSearchModel>> FindSearchItems();
+        Task<IEnumerable<UserSearchModel>> FindSearchItems(int pagesize, int pageNumber);
+
+        Task<int> TotalUserRecords(int pagesize);
+        
     }
 }
